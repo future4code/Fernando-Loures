@@ -1,0 +1,111 @@
+.container{
+    background-color: rgb(247, 255, 251);
+}
+.cabecalho{
+    color: darkblue;
+    background-color: orange;
+}
+#titulo-home{
+    /*border: red solid 1px;*/
+    text-align: center;
+    padding: 20px;
+}
+.cabecalho p{
+    font-size: 1.3em;
+    text-align: center;
+}
+
+/*** menu principal**/
+
+.menu-principal{
+    font-size: 1.3rem;
+    /*border: solid red 1px;*/
+    text-align: center;
+}
+.menu-principal a{
+    text-decoration: none;
+    padding:10px;
+    background-color:darkgrey;
+    width: 25%;
+    color: white;
+}
+.menu-principal a:hover{
+    background-color:black;
+    width: 25%;
+    color: white;
+}
+
+/** */
+.info{
+    margin-top: 30px;
+}
+.info h2{
+    text-align: center;
+    color: green;
+}
+.info p{
+    color: green;
+    font-size: 1.2em;
+}
+
+/**Rodape**/
+.rodape{
+    font-weight: bold;
+    /*border: red solid 1px;*/
+    text-align: right;
+    background-color: orange;
+    margin: 0px;
+}
+.rodape-redes-sociais{
+    
+    display: inline;
+}
+.rodape img{
+    display: inline;
+    width: 3%;
+}
+
+.rodape p{
+    display:inline;
+    padding: 10%;
+}
+
+h2{
+    color: green;
+}
+
+
+
+/***************add-produto*************/
+.formulario{
+    text-align: center;
+}
+.form{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.form div{
+    margin-top: 20px;
+}
+.form button{
+    background: darkorange;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+.funcionario{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.funcionario li{
+    list-style: none;
+    margin-top: 10px;
+}
+
+
+.estoque{
+    text-align: center;
+    font-size: 1.5rem;
+}
