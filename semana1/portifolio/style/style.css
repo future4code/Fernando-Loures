@@ -31,11 +31,11 @@ header{
 .logo{
     /* border: darkorange solid 1px; */
     position: absolute;
-    width: 10%;
-    max-width: 50px;
     top: 12%;
     left: 40px;
-
+}
+header img{
+    max-width: 50px;
 }
 .barra-navegacao{
     /* border: darkmagenta 1px solid; */
@@ -51,6 +51,10 @@ header{
     color: darkgreen;
 }
 .navegacao:hover{
+    color: white;
+    background-color: darkseagreen;
+}
+#selected{
     color: white;
     background-color: darkseagreen;
 }
@@ -89,9 +93,13 @@ footer{
     /* border: red 1px solid; */
     /* display: inline; */
     float: left;
+    text-align: justify;
+}
+.rodape-parte1 img{
+    margin: 10px 40%;
 }
 .rodape-parte2{
-    margin-top: 80px;
+    margin-top: 90px;
     width: 30%;  
     /* display: inline; */
     float: left;
@@ -111,6 +119,7 @@ footer{
 }
 .rs{
     padding: 10px 0;
+    text-align: center;
 }
 .rodape-parte3 li{
     margin-bottom: 20px;
@@ -120,8 +129,13 @@ footer{
 /***** Conteudo *****/
 
 .conteudo{
-    margin-top: 20px;
+    margin: 40px auto;
+    width: 90%;
 }
+.conteudo img{
+    width: 100%;
+}
+
 .title{
     text-align: center;
     padding: 10px;
@@ -143,5 +157,100 @@ h5{
     text-align: center;
 }
 .descricao p{
+    text-align: justify;
     margin: 10px 0;
+}
+
+
+/*** sobre   ***/
+.conteudo-sobre{
+    margin: 50px auto;
+    width: 90%;
+    
+}
+
+.conteudo-sobre h5{
+    padding: 20px 0;
+}
+.conteudo-sobre li{
+    padding: 10px;
+    list-style: none;
+}
+.coluna1{
+    float: left;
+    /* border: red solid 1px;  */
+    padding-bottom: 100px;
+    margin: 0 5% 0 0 ;
+    width: 40%;
+
+}
+.coluna2{
+    float:left;
+    /* border: red solid 1px;  */
+    margin: 0 0 0 5%;
+    width: 40%;
+}
+
+h6{
+    font-size: 0.9rem;
+    border-bottom: darkgreen solid 1px;
+}
+/**** Contato ****/
+.conteudo-contato{
+    margin: 50px auto;
+    width: 90%;
+}
+.conteudo-contato h5{
+    text-align: center;
+}
+.conteudo-contato input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.conteudo-contato input[type = submit]{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+}
+.conteudo-contato input[type = submit]:hover{
+    background-color: #17791a;
+    color: white;
+    font-size: 1.2rem;
+} 
+textarea{
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+/************Portifólio *******************/
+.conteudo-portifolio{
+    margin: 40px auto;
+    width: 90%;
+}
+.conteudo-portifolio h5{
+    text-align: center;
+}
+.tabela{
+    width: 80%;
+    margin: 40px auto;
+}
+.tabela img{
+    width: 100%;
+}
+.conteudo-portifolio table, th, td {
+    border: 1px solid black;
+}
+.tabela td{
+    padding: 20px;
 }

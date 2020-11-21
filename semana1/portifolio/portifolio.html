@@ -4,25 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
+   <!--Font awesome-->
+   <script src="https://kit.fontawesome.com/95974977ae.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+ 
     <title>Portifólio Fernando</title>
 </head>
 <body>
     <div class="container">
         <header class="topo"> <!--Início cabecalho-->
-            <img class="logo" src="./img/logo.png" alt="Logo">
-    
+            <a href="index.html" class="logo">
+                <img src="./img/logo.png" alt="Logo">
+            </a>
             <div class="barra-navegacao">
                 <a class="navegacao" href="index.html">Home</a>
-                <a class="navegacao" href="portifolio.html">Portifólio</a>
-                <a class="navegacao" href="sobre.html">Sobre/a>
+                <a id="selected" class="navegacao" href="portifolio.html">Portifólio</a>
+                <a class="navegacao" href="sobre.html">Sobre</a>
                 <a class="navegacao" href="contato.html">Contato</a>
     
             </div>
     
         </header> <!--Fim cabecalho -->
 
-        <div class="conteudo"> <!--início do conteúdo-->
-            
+        <div class="conteudo-portifolio"> <!--início do conteúdo-->
+            <!--Uma galeria de projetos de software que você trabalhou.
+                 Deve haver uma maneira de interagir com 
+                essa galeria de projetos e abrir uma página que você deve 
+                criar para cada projeto.-->
+                <h5>Galeria de projetos:</h5>
+                <table class="tabela">
+                    <tr>
+                        <th>Projeto</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="../sistema-loja/index.html">
+                                <img src="./img/imgSistemaLoja.png" alt="imagem do projeto sistema-loja">
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                               O Projeto Sistema Loja simula o web site de uma loja de equipamentos eletrônicos.
+                               Esse é trabalho desenvolvido junto ao Curso <a href="https://www.labenu.com.br/">Labenu</a> 
+                               e utiliza como ferramenta apenas HTML e CSS.
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./arquivo-portifolios/JogoMataMosquito/index.html">
+                                <img src="./img/mataMosquito.png" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                                O projeto Mata-Mosquito é um exercício realizado no curso "Curso Web Completo 2020"
+                                na plataforma Udemy, neste projeto utiliza-se HTML,CSS, Bootstrap e JavaScript.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
 
         </div> <!--Fim do conteúdo-->
     </div> <!--Fim do container-->
@@ -42,24 +86,22 @@
                     <ul class="redes-sociais">
                         <li class="rs">
                             <a href="https://github.com/loures90">GitHub
-                                <p>
-                                    Visite meus códigos no portifólio GitHub.
-                                </p>
+                                <i class="fa fa-github" aria-hidden="true"></i>
+
+                             
                             </a>
                         </li>
     
                         <li class="rs">
-                            <a href="https://www.linkedin.com/in/fernando-loures-da-silva-3a102343/">Linkedin
-                                <p>
-                                    Confira meu perfil no linkedin.
-                                </p>
+                            <a href="https://www.linkedin.com/in/fernando-loures-da-silva-3a102343/">Linkedin 
+                                <i class="fab fa-linkedin"></i>
+                             
                             </a>
                         </li>
                         <li class="rs">
-                            <a href="">Twiter
-                                <p>
-                                    Perfil do twiter.
-                                </p>
+                            <a href="https://twitter.com/Fernand84311682">Twiter
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                
                             </a>
                         </li>
                     </ul>
