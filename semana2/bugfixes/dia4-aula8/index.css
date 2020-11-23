@@ -45,9 +45,12 @@ div>p:first-child {
     display: inline;
 }
 
-div img {
+ img {
     /* background: black; */
+
 }
+
+
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -137,6 +140,16 @@ td button:active{
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+}
+
+.container-do-search img {
+    /* background: black; */
+    transition: 2s;
+}
+.container-do-search img:hover {
+    background: orange;
+    width: 60px;
+    height: 60px;
 }
 
 div:nth-child(4){
