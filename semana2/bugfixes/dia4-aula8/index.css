@@ -23,8 +23,13 @@ input {
     height: 20px;
     width: 500px;
     border:none;
-    border-bottom: black solid 2px;
-
+    border-bottom: orange solid 2px;
+    border-radius: 20px;
+    transition: 2s;
+}
+input:hover{
+    border-bottom: orange solid 5px;
+    background-color: palegoldenrod;
 }
 
 button:focus {
@@ -133,6 +138,7 @@ td button:active{
     margin-top: 20px;
     height: 100px;
 }
+
 div:nth-child(4){
     text-align: center;
     margin: 40px auto;
