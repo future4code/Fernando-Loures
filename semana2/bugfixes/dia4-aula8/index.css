@@ -130,8 +130,10 @@ td button:active{
     margin-top: 20px;
     height: 100px;
 }
-
-
+div:nth-child(4){
+    text-align: center;
+    margin: 40px auto;
+}
 #back-button {
     background-color: white;
     width: 100px;
