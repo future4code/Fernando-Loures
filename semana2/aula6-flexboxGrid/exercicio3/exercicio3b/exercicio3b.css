@@ -1,0 +1,93 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+}
+
+.green-background {
+    background-color: green;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.yellow-background {
+    background-color: yellow;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.pink-background {
+    background-color: fuchsia;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.blue-background {
+    background-color: blue;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.red-background {
+    background-color: red;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+}
+
+.purple-background {
+    background-color: purple;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+
+}
+
+/***** Exercício *****/
+
+#main-container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr 3fr 1fr;
+    row-gap:0 ;
+    column-gap: 0;
+    
+}
+#top-container{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    
+ 
+}
+#middle-container{
+    grid-column-start: 1;
+    grid-column-end: -1;  
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+
+
