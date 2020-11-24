@@ -1,0 +1,256 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: cursive;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    margin: 0 5%;
+    /* border: red solid 1px; */
+}
+
+/***************** Cabeçalho ****************/
+
+header{
+    /* border: red solid 1px; */
+    color: darkgreen;
+    text-align: center;
+    font-size: 1.4rem;
+    max-height: 50px;
+    padding: 20px;    
+}
+
+.topo{
+    position: relative;
+    /* margin: 0 5% 0 5%; */
+    /* border: darkorange solid 1px; */
+}
+.logo{
+    /* border: darkorange solid 1px; */
+    position: absolute;
+    top: 12%;
+    left: 40px;
+}
+header img{
+    max-width: 50px;
+}
+.barra-navegacao{
+    /* border: darkmagenta 1px solid; */
+    position: relative;
+    margin-right: 0px;
+    /* margin-top: 10px; */
+    text-align: right;
+
+}
+.navegacao{
+    padding: 20px;
+    text-decoration: none;
+    color: darkgreen;
+}
+.navegacao:hover{
+    color: white;
+    background-color: darkseagreen;
+}
+#selected{
+    color: white;
+    background-color: darkseagreen;
+}
+
+/***************** Rodape ***************************/
+
+footer{
+    background-color: darkslategrey;    
+    border-top: 5px solid green;
+    color: white;
+}
+.rodape{
+    margin: 0 5%;
+    /* display: inline-block; */
+    
+}
+.rodape img{
+    width: 100px;
+}
+.rodape a{
+    text-decoration: none;
+    color: white;
+}
+.rodape a:hover{
+    text-decoration: none;
+    color: gold;
+}
+.rodape li{
+    list-style: none;
+}
+.redes-sociais{
+    margin-top: 10px;
+}
+.rodape-parte1{
+    width: 40%;  
+    /* border: red 1px solid; */
+    /* display: inline; */
+    float: left;
+    text-align: justify;
+}
+.rodape-parte1 img{
+    margin: 10px 40%;
+}
+.rodape-parte2{
+    margin-top: 90px;
+    width: 30%;  
+    /* display: inline; */
+    float: left;
+    margin-left: 5%;
+
+}
+.rodape-parte3{
+    margin-top: 100px; 
+    width: 20%;  
+    /* display: inline; */
+    float: left;
+    margin-left: 5%;
+
+}
+.clear{
+    clear: both;
+}
+.rs{
+    padding: 10px 0;
+    text-align: center;
+}
+.rodape-parte3 li{
+    margin-bottom: 20px;
+    border-bottom: white solid 2px;
+}
+
+/***** Conteudo *****/
+
+.conteudo{
+    margin: 40px auto;
+    width: 90%;
+}
+.conteudo img{
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+    padding: 10px;
+}
+h2{
+    font-size: 1.6rem;  
+    padding: 40px; 
+}
+h5{
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+.descricao{
+    margin: 40px 0;
+}
+.descricao h5{
+    margin: 10px 0;
+    text-align: center;
+}
+.descricao p{
+    text-align: justify;
+    margin: 10px 0;
+}
+
+
+/*** sobre   ***/
+.conteudo-sobre{
+    margin: 50px auto;
+    width: 90%;
+    
+}
+
+.conteudo-sobre h5{
+    padding: 20px 0;
+}
+.conteudo-sobre li{
+    padding: 10px;
+    list-style: none;
+}
+.coluna1{
+    float: left;
+    /* border: red solid 1px;  */
+    padding-bottom: 100px;
+    margin: 0 5% 0 0 ;
+    width: 40%;
+
+}
+.coluna2{
+    float:left;
+    /* border: red solid 1px;  */
+    margin: 0 0 0 5%;
+    width: 40%;
+}
+
+h6{
+    font-size: 0.9rem;
+    border-bottom: darkgreen solid 1px;
+}
+/**** Contato ****/
+.conteudo-contato{
+    margin: 50px auto;
+    width: 90%;
+}
+.conteudo-contato h5{
+    text-align: center;
+}
+.conteudo-contato input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.conteudo-contato input[type = submit]{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+}
+.conteudo-contato input[type = submit]:hover{
+    background-color: #17791a;
+    color: white;
+    font-size: 1.2rem;
+} 
+textarea{
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+/************Portifólio *******************/
+.conteudo-portifolio{
+    margin: 40px auto;
+    width: 90%;
+}
+.conteudo-portifolio h5{
+    text-align: center;
+}
+.tabela{
+    width: 80%;
+    margin: 40px auto;
+}
+.tabela img{
+    width: 100%;
+}
+.conteudo-portifolio table, th, td {
+    border: 1px solid black;
+}
+.tabela td{
+    padding: 20px;
+}
