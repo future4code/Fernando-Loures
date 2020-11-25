@@ -1,0 +1,150 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#first-block {
+    background-color: red;
+    height: 15vh;
+    width: 100vw;
+    
+}
+
+.blue-block {
+    background-color: blue;
+    width: 32vw;
+    margin: 0.5vw;
+    height: 15vh;
+
+
+}
+
+.yellow-block {
+    background-color: yellow;
+    width: 32vw;
+    margin: 0.5vw;
+    height: 15vh;
+}
+
+.green-block {
+    background-color: green;
+    width: 32vw;
+    margin: 0.5vw;
+    height: 15vh;
+}
+
+.black-block {
+    background-color: black;
+    width: 48.5vw;
+    margin: 0.5vw;
+    height: 30vh;
+}
+
+
+.white-block {
+    background-color: white;
+    width: 32vw;
+    margin: 0.5vw;
+    height: 15vh;
+}
+
+#main-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 100vh;
+    border: none;
+}
+#main-container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0.5vw; */
+    
+}
+
+@media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+    /* tablets */
+    #main-container div{
+        
+    }
+    #first-block {
+        background-color: red;
+        height: 10vh;
+          
+    }    
+    .yellow-block {
+        background-color: yellow;
+        width: 48.5vw;
+        margin: 0.5vw;
+        height: 10vh;
+    }
+    
+    .blue-block {
+        background-color: blue;
+        width: 48.5vw;
+        margin: 0.5vw;
+        height: 10vh;
+    }
+    .green-block {
+        background-color: green;
+        width: 99vw;
+        margin: 0.5vw;
+        height: 10vh;
+    }
+    .black-block {
+        width: 48.5vw;
+        align-self: stretch;
+        height: 20vh;
+    }
+    
+    .white-block {
+        background-color: white;
+        width: 48.5vw;
+        margin: 0.5vw;
+        align-self: stretch;
+        height: 10vh;
+    }
+    #onze{
+        width: 99vw;
+        margin: 0.5vw;
+        height: 10vh;
+    }
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    /* celulares */
+    #first-block {
+        height: 7vh;
+        width: 100vw;
+    } 
+
+    .yellow-block {
+        height: 7vh;
+        width: 100vw;
+    }
+    
+    .blue-block {
+        height: 7vh;
+        width: 100vw;
+    }
+    .green-block {
+        height: 7vh;
+        width: 100vw;
+    }
+    .black-block {
+        height: 7vh;
+        width: 100vw;
+    }
+    
+    .white-block {
+        height: 7vh;
+        width: 100vw;
+    }
+}
