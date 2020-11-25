@@ -35,6 +35,7 @@ body {
     display: grid;
     justify-items: center;
     align-items:center ;
+    height: 30vh;
 }
 
 .red-background {
@@ -42,6 +43,7 @@ body {
     display: grid;
     justify-items: center;
     align-items:center ;
+    height: 15vh;
 }
 
 .lightgreen-background {
@@ -49,16 +51,21 @@ body {
     display: grid;
     justify-items: center;
     align-items:center ;
+    /* border: rgb(102, 72, 72) 1px solid; */
+    height: 15vh;
+    
 }
 
 .purple-background {
     background-color: purple;
-    grid-column-start: 1;
-    grid-column-end: -1;
     display: grid;
     justify-items: center;
-    align-items:center ;
-
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: -1; 
+    height: 10vh;
+    width: 100vw;
+    /* border: black 1px solid; */
 }
 
 /***** Exercício *****/
@@ -68,8 +75,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 5fr 3fr 1fr;
-    row-gap:0 ;
-    column-gap: 0;
+    /* row-gap:0 ;
+    column-gap: 0; */
+    /* border: black 1px solid; */
     
 }
 #top-container{
@@ -83,11 +91,13 @@ body {
 }
 #middle-container{
     grid-column-start: 1;
-    grid-column-end: -1;  
+    grid-column-end: -1;
+    height: 10vh;  
     display: grid; 
+    /* flex-grow: 1; */
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr;
-
+    /* border: red 1px solid; */
 }
 
 
