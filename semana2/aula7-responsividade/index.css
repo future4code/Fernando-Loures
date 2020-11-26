@@ -1,0 +1,152 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#first-block {
+    background-color: red;
+    grid-column: 1/-1;
+    width: 100vw;
+    margin: 0 -1vw;
+
+}
+
+.blue-block {
+    background-color: blue;
+    grid-column: 1/3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.yellow-block {
+    background-color: yellow;
+    grid-column: 3/5;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.green-block {
+    background-color: green;
+    grid-column: 5/-1;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    grid-column: 1/4;
+    grid-row: 4/6;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+#oito{
+    grid-column: 4/-1;
+}
+
+.white-block {
+    background-color: white;
+    grid-column: 1/3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+#dez{
+    grid-column: 3/5;
+}
+#onze{
+    grid-column: 5/-1;
+}
+#main-container{
+    display:grid;
+    grid-template-columns: repeat(6, 15vw);
+    grid-template-rows: repeat(6, 13vh);
+    row-gap: 1vh;
+    column-gap:1.5vw;
+    margin: 0 1vw;
+    border: none;
+}
+
+/***** tablet size ****/
+
+@media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+    /* tablets */
+    #main-container{
+        grid-template-rows: repeat(9, 13vh);
+    }
+    .blue-block {
+        background-color: blue;
+        grid-column: 1/4;  
+    }
+
+    .yellow-block {
+        grid-column: 4/-1;
+    }
+    .green-block {
+        grid-column: 1/-1;    
+    }
+    .black-block {
+        grid-row: 6/8;
+    }
+    .white-block {
+        grid-row: 8/9;
+        grid-column: 1/4;
+    }
+    #dez{
+        grid-column: 4/-1;
+    }
+    #onze{
+        grid-row: 9/-1;
+        grid-column: 1/-1;
+    }
+}
+
+
+/***** celulares******/
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    /* celulares */
+    #main-container{
+        display: grid;
+        grid-template-rows: repeat(11, 9vh);
+        grid-template-columns: 1ft;
+    }
+    
+    .blue-block {
+        grid-column: 1/-1;
+    }
+
+    .yellow-block {
+        grid-column: 1/-1;
+    }
+
+    .green-block {
+        grid-column: 1/-1;
+    }
+
+    .black-block {
+        grid-column: 1/-1;
+        grid-row: auto;
+    }
+    #oito{
+        grid-column: 1/-1;
+    }
+
+    .white-block {
+        grid-column: 1/-1;
+    }
+}
