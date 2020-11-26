@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    
+
 }
 .container{
     display: grid;
@@ -93,8 +93,8 @@ footer p{
     
 }
 .principal-video video{
-    max-width: 60vw;
-    max-height: 60vw;    
+    max-width: 50vw;
+    max-height: 50vw;    
 }
 
 /** extra small devices**/
@@ -121,7 +121,11 @@ footer p{
         width: 80vw;
 
     }
+    
+    
+    
 }
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 767px){
     
