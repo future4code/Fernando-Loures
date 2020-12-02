@@ -321,14 +321,30 @@ if ((tipoJogo === 'IN' || tipoJogo === 'DO') &&
     }
     
     //impressão na tela
+    //Tipo de jogo
+    if (tipoJogo ==='IN') {
+        tipoJogo ='Internacional'
+    } else {
+        tipoJogo ='Nacional'
+    }
+
+    // Etapa do jogo
+    if (etapaJogo === 'SF') {
+        etapaJogo = 'Semifinais'
+    } else if (etapaJogo === 'DT'){
+        etapaJogo ="Decisão do 3° lugar"
+    }else{
+        etapaJogo = 'Final'
+    }
+
     console.log("--Dados da compra--")
     console.log(`Nome do cliente: ${nomeCliente}`)
     console.log(`Tipo de jogo: ${tipoJogo}`)
     console.log(`Etapa do jogo: ${etapaJogo}`)
     console.log(`Categoria: ${categoria}`)
-    console.log(`Quantidade de ingressos: ${quantidade}`)
-    
-    if (tipoJogo === 'IN') {
+    console.log(`Quantidade de ingressos: ${quantidade} ingressos`)
+    console.log("--Valores--")
+    if (tipoJogo === 'internacional') {
         console.log(`Valor do ingresso: U$ ${valor*4.1}`)
         console.log(`Valor total: U$ ${valor * quantidade * 4.1 }`)
     } else {
