@@ -345,8 +345,8 @@ if ((tipoJogo === 'IN' || tipoJogo === 'DO') &&
     console.log(`Quantidade de ingressos: ${quantidade} ingressos`)
     console.log("--Valores--")
     if (tipoJogo === 'internacional') {
-        console.log(`Valor do ingresso: U$ ${valor*4.1}`)
-        console.log(`Valor total: U$ ${valor * quantidade * 4.1 }`)
+        console.log(`Valor do ingresso: U$ ${valor/4.1}`)
+        console.log(`Valor total: U$ ${valor * quantidade / 4.1 }`)
     } else {
         console.log(`Valor do ingresso: R$ ${valor}`)
         console.log(`Valor total: R$ ${valor * quantidade}`)
