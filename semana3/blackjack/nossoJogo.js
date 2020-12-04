@@ -1,3 +1,57 @@
+
+// console.log(`Bem vindo ao jogo BlackJack!`)
+// if(confirm("Quer iniciar uma nova jogada?")) {
+    
+//     let cartaJogadorUsuario,
+//         cartaJogadorComputador,
+//         cartasTotaisUsuario ="",
+//         cartasTotaisComputador ="",
+//         pontoUsuario =0,
+//         pontoComputador = 0
+
+
+//     for (let index = 0; index < 2; index++) {
+
+//         cartaJogadorUsuario = comprarCarta()
+//         cartaJogadorComputador = comprarCarta()
+
+//         cartasTotaisUsuario += (cartaJogadorUsuario.texto) + " "
+//         cartasTotaisComputador+= (cartaJogadorComputador.texto) + " "
+
+//         pontoUsuario += cartaJogadorUsuario.valor
+//         pontoComputador += cartaJogadorComputador.valor
+        
+
+//     }
+//     console.log(cartasTotaisUsuario)
+//     console.log(cartasTotaisComputador)
+
+//     console.log(pontoUsuario)
+//     console.log(pontoComputador)
+
+//     console.log(`Usuário - cartas: ${cartasTotaisUsuario}  - pontuação ${pontoUsuario}`)
+//     console.log(`Computador - cartas: ${cartasTotaisComputador}  - pontuação ${pontoComputador}`)
+
+//     if (pontoUsuario > pontoComputador) {
+//         console.log('O usuário ganhou!')
+//     } else if (pontoUsuario < pontoComputador){
+//         console.log('O computador ganhou!')
+//     } else{
+//         console.log('Empate')
+//     }
+
+// } else {
+// 	console.log(`O jogo acabou.`)
+// }
+
+
+/******************************************************************************************************
+ * **********************************************************************************************
+ * ***************************************************************************************************
+ */
+
+
+
 // /**
 //  * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
 //  * 
@@ -124,4 +178,8 @@
 //   console.log("O jogo acabou!")
 // }
 
-
+/*****************************************************************************************************
+ * ***************************************************************************************************
+ * ***************************************************************************************************
+ * 
+ */
