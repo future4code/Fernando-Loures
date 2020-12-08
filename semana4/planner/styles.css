@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    justify-content: space-evenly;
+    height: 80vh;
+}
+
+.semana {
+    border: 1px dotted rgb(53, 53, 53);
+    width: 14%;
+    padding: 5px;
+}
+.risked{
+    text-decoration: line-through;
+}
+.task-item{
+
+}
+.button-end{
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+#clear{
+    margin-top: 2vh;
+   background-color: blue;
+   justify-content: center;
+   align-content: center;
+   width: 20vw;
+   height: 6vh;
+  
+}
