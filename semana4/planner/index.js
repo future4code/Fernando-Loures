@@ -5,14 +5,27 @@ function criarTarefa(){
     valueTarefa = tarefa.value
 
     let diaDaSemana = document.getElementById('dias-semana')
-    valueSemana = diaDaSemana.value
+    valueSemana = '#'+diaDaSemana.value
+
+    let horario = document.getElementById('horas-dia')
+    valueHoras = horario.value
+
+    let numeros = ['.seis','.sete', '.oito', '.nove', '.dez', '.onze', '.doze', '.treze', '.quatorze', '.quinze', '.dezesseis', ".dezessete", '.dezoito', '.dezenove', '.vinte', '.vinte-um','.vinte-dois']    
+    classValueHoras = numeros[valueHoras-6]
+    
+
 
     if (tarefa.value) {
         console.log(valueTarefa)
         console.log(valueSemana)
+        console.log(valueHoras)
+        console.log(valueSemana+classValueHoras)
 
-        let container = document.getElementById(valueSemana)
+        let container = (document.querySelector(valueSemana+" "+classValueHoras)) 
+         
+        
         console.log(container)
+        // console.log(containerDia)
         container.innerHTML += `<p class='task-item'>${valueTarefa}</p>`
 
         tarefa.value =""

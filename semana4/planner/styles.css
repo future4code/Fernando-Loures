@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 header {
@@ -11,16 +13,29 @@ header {
     align-items: center;
 }
 
-section {
+#taskContainer {
     display: flex;
     justify-content: space-evenly;
     height: 80vh;
+    width: 95vw;
+    margin: 0 auto;
 }
 
 .semana {
-    border: 1px dotted rgb(53, 53, 53);
-    width: 14%;
-    padding: 5px;
+    /* border: 1px solid rgb(53, 53, 53); */
+    width: 12vw;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    align-content: center;
+    
+}
+
+.semana div{
+    border: 1px solid rgb(53, 53, 53);
+    display: grid;
+    align-items: center;
 }
 .risked{
     text-decoration: line-through;
@@ -30,16 +45,53 @@ section {
 }
 .button-end{
     height: 10vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid red ; */
 }
-#clear{
-    margin-top: 2vh;
-   background-color: blue;
-   justify-content: center;
-   align-content: center;
-   width: 20vw;
-   height: 6vh;
-  
+button{
+    margin-top: 1vh;
+    background-color: lawngreen ;
+    font-weight: bold;
+    border-radius: 10%;
+    color: white;
+    padding: 1vh 4vw;
 }
+
+
+@media only screen and (max-width: 600px) {
+    *{
+        max-height: 300vh;
+    }
+    #taskContainer{
+        flex-wrap: wrap;
+        height: 300vh;
+    } 
+    .semana{
+        width: 23vw;   
+        margin-bottom: 2vh;  
+    }
+    h3{
+        text-align: center;
+    }
+    header {
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 2vh 0;
+    }
+    form{
+        display:  flex;
+        flex-wrap: wrap;
+        justify-content: inherit;
+        align-items:center;
+    }
+    select{
+        margin: 0.5vh;
+        max-width: 25vw;
+    }
+  }
