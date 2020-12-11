@@ -251,3 +251,28 @@
 //     }
 // }
 // listaDeFilmes.imprimirDados()
+
+
+// Exercícios de Objetos
+// Exercício3
+
+
+// let pessoa = {
+//     nome: "Fernando Loures da Silva", 
+//     idade: 30, 
+//     email: "fernando.loures@hotmail.com",
+//     endereco: "Jaqueline, Belo Horizonte MG, Brasil",
+// }
+
+// anomizarPessoa = (objeto) => {
+//     let novaPessoaAnonima ={
+//         nome: "Anônimo",
+//         idade: pessoa.idade,
+//         email: pessoa.email,
+//         endereco: pessoa.endereco
+
+//     }   
+//     return novaPessoaAnonima
+// }
+
+// console.log(anomizarPessoa(pessoa))
