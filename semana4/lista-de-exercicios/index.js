@@ -378,7 +378,36 @@
 
 
 
+// Exercícios de funções de array
+// Exercício 3
 
+// const consultas = [
+// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+
+// let consultaCancelada = consultas.map((cliente, index, array) =>{
+//     let genero
+//     let lembrar
+//     if (cliente.genero ==='masculino'){
+//         genero = 'Sr.'
+//         lembrar = 'lembrá-lo'
+//     } else{
+//         genero = 'Sra.'
+//         lembrar = 'lembrá-lo'
+//     }
+
+//     if (cliente.cancelada){
+//         return `Olá, ${genero} ${cliente.nome}. Infelizmente, sua consulta marcada para o dia ${cliente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+//     } else{
+//         return `Olá, ${genero} ${cliente.nome}. Estamos enviando esta mensagem para ${lembrar} da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuseo recebimento deste e-mail.`
+//     }
+// })
+
+// console.log(consultaCancelada)
 
 
 
