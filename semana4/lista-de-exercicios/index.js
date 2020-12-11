@@ -183,3 +183,11 @@
 // let array = [1,2,3,44,5,6,0,7,8,99,88,0,2,3,-10,-11]
 
 // segundoNumeroMaior(array)
+
+//Exercício de funções
+// Exercício 2
+
+let helloLabenu = () =>{
+    alert("Hello Labenu!")
+}
+helloLabenu()
