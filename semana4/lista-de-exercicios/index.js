@@ -187,7 +187,19 @@
 //Exercício de funções
 // Exercício 2
 
-let helloLabenu = () =>{
-    alert("Hello Labenu!")
-}
-helloLabenu()
+// let helloLabenu = () =>{
+//     alert("Hello Labenu!")
+// }
+// helloLabenu()
+
+
+
+// Exercícios de Objetos
+// Exercício1
+/* Arrays são lista de elementos, muito utilizados quando queremos guardar elementos do mesmo tipo, lista de carros, de compras, de funções e objetos. */
+/** Objetos são um bloco de atributos e métodos que se pode acessar a qualquer momento. Por exemplo, um objeto carros podemos guardar atributos como
+ * cor, modelo, ano de fabricação, marca etc. Além disso podemos criar métodos para ações de acelerar, frear, mudar de cor, ligar o carro etc. Os códigos predefinidos
+ * no computador e linguagens de programação estão armazenados na forma de objeto.
+ */
+
+ 
