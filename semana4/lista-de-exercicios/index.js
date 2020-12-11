@@ -202,4 +202,26 @@
  * no computador e linguagens de programação estão armazenados na forma de objeto.
  */
 
- 
+
+
+
+ // Exercícios de Objetos
+// Exercício2
+
+
+// let criaRetangulo = (lado1, lado2) =>{
+//     let area = lado1 * lado2
+//     let perimetro = 2*(lado1+lado2)
+//     let largura = lado1
+//     let altura = lado2
+
+//     let retangulo = {
+//         area: area,
+//         perimetro: perimetro,
+//         largura: largura,
+//         altura: altura
+//     }
+//     return retangulo
+// }
+// let retanguloCriado = criaRetangulo(4, 10)
+// console.log(retanguloCriado)
