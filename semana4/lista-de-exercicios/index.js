@@ -106,39 +106,80 @@
 
 
 //Exercícios de lógica de programação
-// Exercício 5  
-let numerosDivisiveis =(numeroMaior, numeroMenor) =>{
-    if(numeroMaior % numeroMenor ===0){
-        return `${numeroMaior} é divisível por ${numeroMenor}.`
-    } else{
-        return `${numeroMaior} não é divisível por ${numeroMenor}.`
-    }
-}
-let diferencaEntreNumeros =(numeroMaior, numeroMenor) =>{
-    return `A diferença entre os valores é de ${numeroMaior - numeroMenor}.`
-}
+// // Exercício 5  
+// let numerosDivisiveis =(numeroMaior, numeroMenor) =>{
+//     if(numeroMaior % numeroMenor ===0){
+//         return `${numeroMaior} é divisível por ${numeroMenor}.`
+//     } else{
+//         return `${numeroMaior} não é divisível por ${numeroMenor}.`
+//     }
+// }
+// let diferencaEntreNumeros =(numeroMaior, numeroMenor) =>{
+//     return `A diferença entre os valores é de ${numeroMaior - numeroMenor}.`
+// }
 
-let compararNumeros = (numero1, numero2) =>{
-    let mensagem = ''
-    let  divisibilidade = ''
-    let diferenca 
-    if (((numero1 < 0) || (numero2 < 0)) || ((numero1 % 1 !==0) || (numero2 % 1 !==0))) {
-        return console.log('Insira valores inteiros maiores que zero.')
-    } 
+// let compararNumeros = (numero1, numero2) =>{
+//     let mensagem = ''
+//     let  divisibilidade = ''
+//     let diferenca 
+//     if (((numero1 < 0) || (numero2 < 0)) || ((numero1 % 1 !==0) || (numero2 % 1 !==0))) {
+//         return console.log('Insira valores inteiros maiores que zero.')
+//     } 
 
-    if (numero1 > numero2) {
-        divisibilidade = numerosDivisiveis(numero1,numero2)
-        diferenca = diferencaEntreNumeros(numero1,numero2)
-        mensagem += `${numero1} maior que ${numero2}.` 
+//     if (numero1 > numero2) {
+//         divisibilidade = numerosDivisiveis(numero1,numero2)
+//         diferenca = diferencaEntreNumeros(numero1,numero2)
+//         mensagem += `${numero1} maior que ${numero2}.` 
 
-    } else if(numero1 < numero2) {
-        divisibilidade = numerosDivisiveis(numero2,numero1)
-        diferenca = diferencaEntreNumeros(numero1,numero2)
-        mensagem += `${numero1} menor que ${numero2}.`
+//     } else if(numero1 < numero2) {
+//         divisibilidade = numerosDivisiveis(numero2,numero1)
+//         diferenca = diferencaEntreNumeros(numero1,numero2)
+//         mensagem += `${numero1} menor que ${numero2}.`
 
-    } else{
-        mensagem += `Ambos valores são iguais a ${numero2}.`
-    }
-    return mensagem + ` ${divisibilidade} ${diferenca}`
-}
-console.log(compararNumeros(1,5.3))
+//     } else{
+//         mensagem += `Ambos valores são iguais a ${numero2}.`
+//     }
+//     return mensagem + ` ${divisibilidade} ${diferenca}`
+// }
+// console.log(compararNumeros(1,5.3))
+
+
+//Exercício de funções
+// Exercício 1
+
+// let NumeroMaior = (array) =>{
+    
+//     let maior = 0
+//     let menor = Infinity
+
+//     for (let valor of array) {
+//         if (valor > maior) {
+//             maior = valor
+//         }
+
+//         if (valor < menor) {
+//             menor = valor
+//         }
+//     }
+
+//     return [menor, maior]
+
+// }
+// let segundoNumeroMaior = (array) =>{
+//     let numerosExtremos = NumeroMaior(array)
+//     let menor = numerosExtremos[0]
+//     let maior = numerosExtremos[1] 
+
+//     array.splice(array.indexOf(menor),1)
+//     array.splice(array.indexOf(maior),1)
+
+//     let segundosExtremos = NumeroMaior(array)
+
+//     let segundoMaior = segundosExtremos[1]
+//     let segundoMenor = segundosExtremos[0]
+//     console.log(`O segundo maior número do array é: ${segundoMaior}.`)
+//     console.log(`O segundo menor número do array é: ${segundoMenor}.`)
+// }
+// let array = [1,2,3,44,5,6,0,7,8,99,88,0,2,3,-10,-11]
+
+// segundoNumeroMaior(array)
