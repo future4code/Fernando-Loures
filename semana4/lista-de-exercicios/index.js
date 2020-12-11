@@ -379,7 +379,7 @@
 
 
 // Exercícios de funções de array
-// Exercício 3
+// Exercício 4
 
 // const consultas = [
 // 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
@@ -410,9 +410,26 @@
 // console.log(consultaCancelada)
 
 
+// Exercícios de funções de array
+// Exercício 5
 
+// let banco = [
+// 	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+// 	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+// 	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+// 	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+// 	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+// 	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
 
-
+// banco.forEach((conta, index, array) => {
+//     let valorCompras = 0
+//     for (const compra of conta.compras) {
+//         valorCompras += compra   
+//     }
+//     conta.saldoTotal -= valorCompras 
+// });
+// console.log(banco)
 
 
 
