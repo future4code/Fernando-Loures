@@ -323,10 +323,19 @@ let arrayVezesTres = array.forEach((numero,index,array) =>{
     numero = 3 * numero + ""
     novoArray2.push((numero))
 })
-
-
 console.log(novoArray2)
 
+let novoArray3 =[]
+let arrayParImpar = array.forEach((numero,index,array) =>{
+    if (numero % 2 !==0) {
+        numero = numero + " é ímpar"  
+    } else{
+        numero = numero + " é par"
+    }
+    novoArray3.push((numero))
+})
+
+console.log(novoArray3)
 
 
 
