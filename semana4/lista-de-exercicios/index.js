@@ -225,3 +225,29 @@
 // }
 // let retanguloCriado = criaRetangulo(4, 10)
 // console.log(retanguloCriado)
+
+
+
+// Exercícios de Objetos
+// Exercício3
+
+// let listaDeFilmes = {
+//     titulo: "Titanic",
+//     ano: "2000",
+//     diretor: "João José",
+//     atores: ['leonardo Dicaprio', 'Fernanda Lima', 'José', 'Paulo', 'Felizberto', "Astrogildo"],
+    
+//     listaDeAtores : function(){
+//         let mensagem = ''
+//         for (const ator of listaDeFilmes.atores) {
+//             mensagem += ` ${ator},`
+//         }
+//         return mensagem
+//     },
+    
+//     imprimirDados : function(){
+//         let mensagemAtores =listaDeFilmes.listaDeAtores()
+//         console.log(`Venha assistir ao filme ${listaDeFilmes.titulo}, de ${listaDeFilmes.ano}, dirigido por ${listaDeFilmes.diretor} e estrelado por ${mensagemAtores}.`)
+//     }
+// }
+// listaDeFilmes.imprimirDados()
