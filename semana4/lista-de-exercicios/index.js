@@ -103,3 +103,42 @@
 // }
 
 // console.log(ladosDosTriangulos())
+
+
+//Exercícios de lógica de programação
+// Exercício 5  
+let numerosDivisiveis =(numeroMaior, numeroMenor) =>{
+    if(numeroMaior % numeroMenor ===0){
+        return `${numeroMaior} é divisível por ${numeroMenor}.`
+    } else{
+        return `${numeroMaior} não é divisível por ${numeroMenor}.`
+    }
+}
+let diferencaEntreNumeros =(numeroMaior, numeroMenor) =>{
+    return `A diferença entre os valores é de ${numeroMaior - numeroMenor}.`
+}
+
+let compararNumeros = (numero1, numero2) =>{
+    let mensagem = ''
+    let  divisibilidade = ''
+    let diferenca 
+    if (((numero1 < 0) || (numero2 < 0)) || ((numero1 % 1 !==0) || (numero2 % 1 !==0))) {
+        return console.log('Insira valores inteiros maiores que zero.')
+    } 
+
+    if (numero1 > numero2) {
+        divisibilidade = numerosDivisiveis(numero1,numero2)
+        diferenca = diferencaEntreNumeros(numero1,numero2)
+        mensagem += `${numero1} maior que ${numero2}.` 
+
+    } else if(numero1 < numero2) {
+        divisibilidade = numerosDivisiveis(numero2,numero1)
+        diferenca = diferencaEntreNumeros(numero1,numero2)
+        mensagem += `${numero1} menor que ${numero2}.`
+
+    } else{
+        mensagem += `Ambos valores são iguais a ${numero2}.`
+    }
+    return mensagem + ` ${divisibilidade} ${diferenca}`
+}
+console.log(compararNumeros(1,5.3))
