@@ -254,7 +254,7 @@
 
 
 // Exercícios de Objetos
-// Exercício3
+// Exercício 4
 
 
 // let pessoa = {
@@ -276,3 +276,41 @@
 // }
 
 // console.log(anomizarPessoa(pessoa))
+
+
+
+// Exercícios de funções de array
+// Exercício1
+
+// let arrayPessoa = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
+
+// let pessoaAdulta = arrayPessoa.filter((pessoa, index, array) =>{
+//     if (pessoa.idade >=18) {
+//         return true
+//     }
+// })
+
+// let pessoaCrianca = arrayPessoa.filter((pessoa, index, array) =>{
+//     if (pessoa.idade <18) {
+//         return true
+//     }
+// })
+
+
+// console.log(pessoaAdulta)
+// console.log(pessoaCrianca)
+
+
+
+
+
+
+
+
+
+
