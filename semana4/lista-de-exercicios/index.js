@@ -307,6 +307,26 @@
 
 
 
+// Exercícios de funções de array
+// Exercício2
+
+const array = [1, 2, 3, 4, 5, 6]
+let novoArray =[]
+let arrayVezesDois = array.forEach((numero,index,array) =>{
+    numero = 2 * numero
+    novoArray.push(numero)
+})
+console.log(novoArray)
+
+let novoArray2 =[]
+let arrayVezesTres = array.forEach((numero,index,array) =>{
+    numero = 3 * numero + ""
+    novoArray2.push((numero))
+})
+
+
+console.log(novoArray2)
+
 
 
 
