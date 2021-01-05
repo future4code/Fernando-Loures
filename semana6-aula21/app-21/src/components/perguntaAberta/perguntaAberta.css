@@ -1,0 +1,6 @@
+#pergunta-aberta{
+    display: flex;
+    /* border: solid red 1px; */
+    flex-direction: column;
+    margin-bottom: 5vh;
+}

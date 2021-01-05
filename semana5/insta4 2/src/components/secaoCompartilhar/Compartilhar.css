@@ -1,0 +1,15 @@
+.compartilhar{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1vh;
+}
+.compartilhar-container img{
+    max-width: 20px;
+    margin: 5px;
+}
+
+.compartilhar-container p{
+    color: darkgreen;
+    text-align: justify;
+    margin: 0 1vw;
+}
