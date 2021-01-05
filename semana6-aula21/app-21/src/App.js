@@ -27,8 +27,8 @@ export default class App extends React.Component {
   }
 
 
-  irProximaEtapa = () =>{
-    this.state.etapa <4 ? this.setState({etapa: this.state.etapa+1}) : this.setState({etapa: 1})
+  irProximaEtapa = (valor =1) =>{
+    this.state.etapa <4 ? this.setState({etapa: this.state.etapa+valor}) : this.setState({etapa: 1})
     console.log(this.state.etapa)
   }
 
