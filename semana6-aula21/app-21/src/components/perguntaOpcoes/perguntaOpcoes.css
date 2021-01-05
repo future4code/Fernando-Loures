@@ -1,5 +1,9 @@
-#pergunta-aberta{
+#pergunta-opcoes{
     display: flex;
     /* border: solid red 1px; */
     flex-direction: column;
+    
+}
+label{
+    margin-bottom: 1vh;
 }

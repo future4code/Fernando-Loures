@@ -12,18 +12,20 @@ export default class App extends React.Component {
   renderizaEtapa = () => {
     switch (this.state.etapa) {
       case 1:
-        return <Etapa1 irProximaEtapa={this.irProximaEtapa}/>;
+        return <Etapa1 
+          irProximaEtapa={this.irProximaEtapa}
+        />;
       case 2:
         return <Etapa2 irProximaEtapa={this.irProximaEtapa}/>;
       case 3:
         return <Etapa3 irProximaEtapa={this.irProximaEtapa}/>;
       case 4:
-        return (<Final />)
-        ;
+        return (<Final />);
       default:
          return <Etapa1/>;
     }
   }
+
 
   irProximaEtapa = () =>{
     this.state.etapa <4 ? this.setState({etapa: this.state.etapa+1}) : this.setState({etapa: 1})
