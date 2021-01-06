@@ -10,7 +10,13 @@ const TarefaList = styled.ul`
 const Tarefa = styled.li`
   text-align: left;
   text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
+
 `
+const TarefaDiv = styled.div`
+border: 1px solid red;
+display: flex;
+justify-content: space-between;
+`;
 
 const InputsContainer = styled.div`
   display: grid;
@@ -28,7 +34,8 @@ class App extends React.Component {
       }
     ],
     inputValue: '',
-    filtro: ''
+    filtro: '',
+    editarId: null
   }
 
   componentDidUpdate() {
@@ -40,8 +47,8 @@ class App extends React.Component {
     const novaString = localStorage.getItem("tarefas")
     const novoTarefas = JSON.parse(novaString)
 
-    if (novoTarefas){
-      this.setState({tarefas:novoTarefas})
+    if (novoTarefas) {
+      this.setState({ tarefas: novoTarefas })
     }
   };
 
@@ -52,21 +59,41 @@ class App extends React.Component {
   limparInput = () => {
     this.setState({ inputValue: "" })
   }
+
   criaTarefa = () => {
     if (this.state.inputValue) {
 
-      let novaTarefa = {
-        id: Date.now(),
-        texto: this.state.inputValue,
-        completa: false
+      let novaTarefa
+
+      if (this.state.editarId === null) {
+
+        novaTarefa = {
+          id: Date.now(),
+          texto: this.state.inputValue,
+          completa: false
+        }
+
+        let novoTarefas = this.state.tarefas
+        novoTarefas.push(novaTarefa)
+
+      } else {
+        novaTarefa = {
+          id: this.state.editarId,
+          texto: this.state.inputValue,
+          completa: false
+        }
+        this.state.tarefas.map((tarefa)=>{
+          if(tarefa.id === this.state.editarId){
+            let index = this.state.tarefas.indexOf(tarefa)
+            let novoTarefas = this.state.tarefas
+            novoTarefas[index] = novaTarefa
+            console.log(novoTarefas)
+          }
+        })
+        console.log(this.state.tarefas)
       }
-      // console.log(novaTarefa)
-
-      let novoTarefas = this.state.tarefas
-      novoTarefas.push(novaTarefa)
-      // console.log(this.state.tarefas)
-
       this.limparInput()
+      this.setState({editarId: null})
     }
   }
 
@@ -74,6 +101,33 @@ class App extends React.Component {
     this.state.tarefas.map((tarefa) => {
       if (tarefa.id === id) {
         tarefa.completa = !tarefa.completa
+        this.setState({ tarefas: this.state.tarefas })
+      }
+    })
+  }
+
+  editarTarefa = (id) => {
+    
+    this.setState({editarId: id})
+
+    this.state.tarefas.map((tarefa) => {
+      if(id === tarefa.id){
+        this.setState({ inputValue: tarefa.texto })
+
+      }
+    })
+  }
+
+
+
+  removerTarefa = (id) => {
+    console.log(id)
+    this.state.tarefas.map((tarefa) => {
+      // console.log(tarefa.id)
+      if (tarefa.id === id) {
+        let index = this.state.tarefas.indexOf(tarefa)
+        this.state.tarefas.splice(index, 1)
+        this.setState({ tarefas: this.state.tarefas })
       }
     })
   }
@@ -93,6 +147,7 @@ class App extends React.Component {
           return true
       }
     })
+
 
     return (
       <div className="App">
@@ -114,12 +169,17 @@ class App extends React.Component {
         <TarefaList>
           {listaFiltrada.map(tarefa => {
             return (
-              <Tarefa
-                completa={tarefa.completa}
-                onClick={() => this.selectTarefa(tarefa.id)}
-              >
-                {tarefa.texto}
-              </Tarefa>
+              <TarefaDiv>
+                <Tarefa
+                  completa={tarefa.completa}
+                  onClick={() => this.selectTarefa(tarefa.id)}
+                  onDoubleClick={() => this.removerTarefa(tarefa.id)}
+                >
+                  <div>{tarefa.texto}</div>
+
+                </Tarefa>
+                <button onClick={() => this.editarTarefa(tarefa.id)}> editar</button>
+              </TarefaDiv>
             )
           })}
         </TarefaList>
