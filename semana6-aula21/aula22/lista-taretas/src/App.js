@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import './App.css'
 
+
 const TarefaList = styled.ul`
   padding: 0;
   width: 200px;
@@ -10,10 +11,12 @@ const TarefaList = styled.ul`
 const Tarefa = styled.li`
   text-align: left;
   text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
+  margin-bottom: 1vh;
+  display:flex;
 
 `
 const TarefaDiv = styled.div`
-border: 1px solid red;
+/* border: 1px solid red; */
 display: flex;
 justify-content: space-between;
 `;
@@ -35,7 +38,9 @@ class App extends React.Component {
     ],
     inputValue: '',
     filtro: '',
-    editarId: null
+    editarId: null,
+    procurarValue: "",
+    procurarImprime: []
   }
 
   componentDidUpdate() {
@@ -82,8 +87,8 @@ class App extends React.Component {
           texto: this.state.inputValue,
           completa: false
         }
-        this.state.tarefas.map((tarefa)=>{
-          if(tarefa.id === this.state.editarId){
+        this.state.tarefas.map((tarefa) => {
+          if (tarefa.id === this.state.editarId) {
             let index = this.state.tarefas.indexOf(tarefa)
             let novoTarefas = this.state.tarefas
             novoTarefas[index] = novaTarefa
@@ -93,7 +98,7 @@ class App extends React.Component {
         console.log(this.state.tarefas)
       }
       this.limparInput()
-      this.setState({editarId: null})
+      this.setState({ editarId: null })
     }
   }
 
@@ -107,11 +112,11 @@ class App extends React.Component {
   }
 
   editarTarefa = (id) => {
-    
-    this.setState({editarId: id})
+
+    this.setState({ editarId: id })
 
     this.state.tarefas.map((tarefa) => {
-      if(id === tarefa.id){
+      if (id === tarefa.id) {
         this.setState({ inputValue: tarefa.texto })
 
       }
@@ -134,6 +139,26 @@ class App extends React.Component {
 
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value })
+  }
+
+  apagarTodasTarefas = () => {
+    this.setState({ tarefas: [] })
+  }
+
+  aoMudarProcurar = (event) => {
+    this.setState({ procurarValue: event.target.value })
+
+    let texto = this.state.procurarValue
+
+
+    let lista = []
+    this.state.tarefas.map(tarefa => {
+      
+      if (tarefa.texto.search(texto) !== -1) {
+        lista.push(tarefa.texto)
+      }
+    })
+    console.log(lista)
   }
 
   render() {
@@ -165,6 +190,8 @@ class App extends React.Component {
             <option value="pendentes">Pendentes</option>
             <option value="completas">Completas</option>
           </select>
+          <label>Procurar</label>
+          <input onChange={this.aoMudarProcurar} value={this.state.procurarValue} />
         </InputsContainer>
         <TarefaList>
           {listaFiltrada.map(tarefa => {
@@ -175,13 +202,16 @@ class App extends React.Component {
                   onClick={() => this.selectTarefa(tarefa.id)}
                   onDoubleClick={() => this.removerTarefa(tarefa.id)}
                 >
-                  <div>{tarefa.texto}</div>
+                  <div>{ tarefa.texto}</div>
 
                 </Tarefa>
                 <button onClick={() => this.editarTarefa(tarefa.id)}> editar</button>
               </TarefaDiv>
             )
           })}
+
+          <button onClick={this.apagarTodasTarefas}>Apagar tarefas</button>
+
         </TarefaList>
       </div>
     )
