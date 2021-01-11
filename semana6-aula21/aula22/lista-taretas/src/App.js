@@ -150,7 +150,6 @@ class App extends React.Component {
 
     let texto = this.state.procurarValue
 
-
     let lista = []
     this.state.tarefas.map(tarefa => {
       
