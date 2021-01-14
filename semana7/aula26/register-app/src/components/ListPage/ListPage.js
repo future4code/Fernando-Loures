@@ -27,7 +27,10 @@ export default class ListPage extends React.Component {
     usersList: [],
     idDelete: '',
     detailsPage: false,
-    idDetails:'',
+    idDetails: '',
+    inputSearch:"",
+    showSearchResult: false,
+    resultSearch:[]
   }
 
   componentDidMount() {
@@ -49,6 +52,7 @@ export default class ListPage extends React.Component {
         const response = await axios.delete(`${urlBase}/${id}`, parameters)
         console.log(response)
         this.listAllUsers()
+        this.setState({showSearchResult: false})
         alert('O usuário foi deletado.')
       } catch (error) {
         console.log(error.message)
@@ -57,35 +61,72 @@ export default class ListPage extends React.Component {
     }
   }
 
-  UserDetails = (id = 0) =>{
-    if(id ===0){
-      this.setState({detailsPage: !this.state.detailsPage })
+  UserDetails = (id = 0) => {
+    if (id === 0) {
+      this.setState({ detailsPage: !this.state.detailsPage })
       this.listAllUsers()
-    }else{
-      this.setState({detailsPage: !this.state.detailsPage,
-                    idDetails: id})
+    } else {
+      this.setState({
+        detailsPage: !this.state.detailsPage,
+        idDetails: id
+      })
+      this.listAllUsers()
+      this.closeSearch()
     }
-
-
   }
 
+  handleSearch = (e) =>{
+    this.setState({inputSearch: e.target.value})
+  }
+
+  searchUser = async () =>{
+    try {
+      const response = await axios.get(`${urlBase}/search?name=${this.state.inputSearch}&email=`, parameters)
+      console.log(response.data[0])
+      this.setState({showSearchResult: !this.state.showSearchResult})
+      this.setState({resultSearch: response.data[0]})      
+      this.setState({inputSearch: ""})
+    } catch (error) {
+      this.setState({resultSearch: ''})      
+      this.setState({inputSearch: ""})
+      console.log(error.message)
+      alert('Não foi possível encontrar o usuário.')
+    }
+  }
+  closeSearch = () =>{
+    this.setState({showSearchResult: false})
+    
+  }  
 
   render() {
-    console.log(this.state.usersList)
     const printList = this.state.usersList.map((user) => {
       return <List>
-        <p>{user.name}</p><X onClick={() => this.deleteUser(user.id, user.name)}>X</X> 
+        <p>{user.name}</p><X onClick={() => this.deleteUser(user.id, user.name)}>X</X>
         <button onClick={() => this.UserDetails(user.id)}>Detalhes</button></List>
     })
-    console.log(this.state.emailDetails)
+
+    const result = (<List>
+      <p>{this.state.resultSearch.name}</p><X onClick={() => this.deleteUser(this.state.resultSearch.id, this.state.resultSearch.name)}>X</X>
+        <button onClick={() => this.UserDetails(this.state.resultSearch.id)}>Detalhes</button></List>
+    
+    )
+
+      
+
     return (
       <ContainerList>
-        {!this.state.detailsPage &&<h2>Usuários Cadastrados:</h2>}
+        
+        <input type="text" onChange={this.handleSearch} value={this.state.inputSearch}/>
+        <button onClick={this.searchUser}>Procurar</button>
+        {this.state.showSearchResult && result}
+
+        {!this.state.detailsPage && <h2>Usuários Cadastrados:</h2>}
         {!this.state.detailsPage && printList}
 
         {this.state.detailsPage && <UserDetails
-          idDetails= {this.state.idDetails}
-          UserDetails = {this.UserDetails}
+          idDetails={this.state.idDetails}
+          UserDetails={this.UserDetails}
+          closeSearch={this.closeSearch}
         />}
       </ContainerList>
     )

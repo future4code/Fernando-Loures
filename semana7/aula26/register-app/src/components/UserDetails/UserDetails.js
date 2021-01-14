@@ -6,7 +6,11 @@ import { parameters } from '../../shortcut';
 
 export default class UserDetails extends React.Component {
     state = {
-        detail: ['id', 'name', 'email']
+        detail: [],
+        editPage: false,
+        inputEditName: '',
+        inputEditEmail: ''
+
     }
     componentDidMount() {
         this.getAllDetails()
@@ -36,7 +40,36 @@ export default class UserDetails extends React.Component {
             }
         }
     }
+    changeToEdit = () => {
+        this.setState({ editPage: !this.state.editPage })
+        console.log('true ou false',this.state.editPage)
+    }
 
+    editName = (e) => {
+        this.setState({ inputEditName: e.target.value })
+    }
+
+    editEmail = (e) => {
+        this.setState({ inputEditEmail: e.target.value })
+    }
+
+    saveEdition = async () => {
+        const body = {
+            name: this.state.inputEditName,
+            email: this.state.inputEditEmail
+        }
+        try {
+            const response = await axios.put(`${urlBase}/${this.state.detail.id}`, body, parameters)
+            console.log(response.data)
+            this.changeToEdit()
+            alert('Usuário editado com sucesso!')
+        } catch (error) {
+            console.log(error.resposnse)
+            alert('Não foi possível criar o usuário.')
+        }
+
+        this.setState({ inputValueEmail: "", inputValueNome: "" })
+    }
 
     render() {
         const renderDetail = (
@@ -52,15 +85,28 @@ export default class UserDetails extends React.Component {
                     <td>{this.state.detail.name}</td>
                     <td>{this.state.detail.email}</td>
                     <td><button onClick={this.deleteUser}>Apagar</button>
-                    <button onClick={this.props.UserDetails}>voltar</button></td>
+                        <button onClick={this.changeToEdit}>Editar</button></td>
                 </tr>
             </table>
+        )
+
+        const editSection = (
+            <div>
+                <h3>Editar usuário:</h3>
+                <label>Nome:</label>
+                <input onChange={this.editName} value={this.state.inputEditName} />
+                <label>E-mail:</label>
+                <input onChange={this.editEmail} value={this.state.inputEditEmail} />
+                <button onClick={this.saveEdition}>Salvar edição</button>
+            </div>
         )
 
         return (
             <div>
                 <h2>Detalhes do usuário</h2>
                 {renderDetail}
+                {this.state.editPage ? editSection : <div></div>}
+                <button onClick={this.props.UserDetails}>voltar</button>
             </div>
         )
     }

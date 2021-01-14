@@ -33,6 +33,7 @@ background-color: lightgreen;
 border-radius: 20%;
 font-weight: bold;
 `;
+
 export default class RegisterPage extends React.Component {
   state = {
     inputValueNome: "",
