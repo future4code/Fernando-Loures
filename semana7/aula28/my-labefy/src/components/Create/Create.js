@@ -2,6 +2,8 @@ import React from 'react';
 import { urlBase } from '../../parameters';
 import { parameterHeader } from '../../parameters';
 import axios from 'axios';
+import styled from 'styled-components';
+import {BtnApp, AppDiv,P, SubTitle, InputValues, CreateApp} from '../../styled';
 
 export default class Create extends React.Component {
     state = {
@@ -29,14 +31,14 @@ export default class Create extends React.Component {
     }
 
     render() {
-        const message = (<p>{this.state.status}</p>)
+        const message = (<P>{this.state.status}</P>)
         return (
-            <div className="App">
-                <h3>Criar Playlist</h3>
-                <input onChange={this.handleCreate} value={this.state.inputCreateValue} placeholder="insira o nome da Playlist" />
-                <button onClick={this.createPlaylist}>Criar playlist</button>
+            <CreateApp>
+                <SubTitle>Criar Playlist</SubTitle>
+                <InputValues onChange={this.handleCreate} value={this.state.inputCreateValue} placeholder="insira o nome da Playlist" />
+                <BtnApp onClick={this.createPlaylist}>Criar playlist</BtnApp>
                 {message}
-            </div>
+            </CreateApp>
         );
     }
 }

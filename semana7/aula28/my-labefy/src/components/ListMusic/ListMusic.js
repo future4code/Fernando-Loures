@@ -3,15 +3,19 @@ import { urlBase } from '../../parameters';
 import { parameterHeader } from '../../parameters';
 import NewTrack from './NewTrack/NewTrack'
 import axios from 'axios';
+import styled from 'styled-components';
+import { Table, SmallList, List, SubTitle, PlaylistName, Line, DeleteButton, SmallButton, Audio } from '../../styled';
 
 
 export default class ListMusic extends React.Component {
     state = {
         playlists: [],
         details: [],
+        showDetails: false,
         musicTracks: [],
         showNewTrackEdit: false,
-        idNewTrack:''
+        idNewTrack: '',
+        idPlaylist:''
     }
 
     componentDidMount() {
@@ -37,17 +41,20 @@ export default class ListMusic extends React.Component {
             .catch(err => {
                 console.log(err)
             })
+        this.getAllPlaylists()
     }
 
     playlistDetails = (id) => {
+        this.setState({idPlaylist:id})
         axios.get(`${urlBase}/${id}/tracks`, parameterHeader)
             .then(response => {
-                console.log(response.data.result)
+                console.log(response.data.result.tracks)
                 this.setState({ musicTracks: response.data.result })
             })
             .catch(err => {
                 console.log(err)
             })
+        this.setState({ showDetails: !this.state.showDetails })
     }
 
 
@@ -56,17 +63,37 @@ export default class ListMusic extends React.Component {
         this.setState({ idNewTrack: id })
     }
 
+    deleteTracks = (idTrack) =>{
+        console.log("idtrack ",idTrack)
+        axios.delete(`${urlBase}/${this.state.idPlaylist}/tracks/${idTrack}`,parameterHeader)
+        .then((response) =>{
+            console.log(response)
+            this.playlistDetails(this.state.idPlaylist)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
     render() {
         let renderTracks = ''
         if (!(this.state.musicTracks.quantity === 0 || this.state.musicTracks.quantity === undefined)) {
             console.log(this.state.musicTracks.tracks)
             renderTracks = this.state.musicTracks.tracks.map(music => {
                 return (
-                    <div>
-                        <p>Música: {music.name}</p>
-                        <p>Artista: {music.artist}</p>
-                        <p>Música: {music.url}</p>
-                    </div>
+                    <Table>
+                        <Line>
+                            <th>{music.name}</th>
+                            <th>{music.artist}</th>
+                            <th>
+                                <Audio controls>
+                                    <source src={music.url} type="audio/ogg" />
+                                    <source src={music.url} type="audio/mpeg" />
+                                </Audio>
+                            </th>
+                            <th><SmallButton onClick={()=>this.deleteTracks(music.id)}>X</SmallButton></th>
+                        </Line>
+                    </Table>
                 )
             })
         }
@@ -74,27 +101,29 @@ export default class ListMusic extends React.Component {
 
         const renderAllPlaylists = this.state.playlists.map(playlist => {
             return (
-                <div>
-                    <span>{playlist.name}</span>
-                    <button onClick={() => this.deletePlaylist(playlist.id)}>Apagar playlist</button>
-                    <button onClick={() => this.playlistDetails(playlist.id)}>Detalhes</button>
-                    <button onClick={()=>this.addNewTracks (playlist.id)}>Adicionar música</button>
-                    {(this.state.showNewTrackEdit && this.state.idNewTrack === playlist.id)&&(
-                        <NewTrack/>
+                <List>
+                    <SmallList>
+                        <PlaylistName>{playlist.name}</PlaylistName>
+                        <DeleteButton onClick={() => this.deletePlaylist(playlist.id)}>Apagar</DeleteButton>
+                        <SmallButton onClick={() => this.playlistDetails(playlist.id)}>Detalhes</SmallButton>
+                        <SmallButton onClick={() => this.addNewTracks(playlist.id)}>Adicionar música</SmallButton>
+
+                    </SmallList>
+                    {(this.state.showNewTrackEdit && this.state.idNewTrack === playlist.id) && (
+                        <NewTrack
+                            playlistId={playlist.id} />
                     )}
-                </div>
+                </List>
             )
         })
 
 
         return (
             <div className="App">
+                <SubTitle>Minhas Playlists</SubTitle>
                 {renderAllPlaylists}
-                {renderTracks && renderTracks}
+                {(this.state.showDetails && renderTracks) && renderTracks}
             </div>
         );
     }
 }
-
-// O usuário deve ser capaz de criar uma playlist de músicas. 
-// Para isso, ele só precisa passar um nome. Não podem existir playlists com o mesmo nome.
