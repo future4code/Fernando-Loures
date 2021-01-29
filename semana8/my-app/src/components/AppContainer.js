@@ -14,7 +14,7 @@ export default function AppContainer() {
 
   useEffect(() => {
     getProfilesMatches()
-  }, [])
+  }, [pageHome])
 
   const clearMatches = () => {
     axios.put(`${baseUrl}/${aluno}/clear`)
@@ -41,13 +41,13 @@ export default function AppContainer() {
         <Home
           clearMatches={clearMatches}
           togglePage={togglePage}
-          getProfilesMatches={getProfilesMatches}
+          // getProfilesMatches={getProfilesMatches}
         /> :
         <MatchesList
           clearMatches={clearMatches}
           togglePage={togglePage}
           matches={matches}
-          getProfilesMatches={getProfilesMatches}
+          // getProfilesMatches={getProfilesMatches}
         />
       }
     </div>

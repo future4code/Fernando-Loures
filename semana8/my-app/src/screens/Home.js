@@ -8,7 +8,7 @@ export default function Home(props) {
       <Header
         togglePage={props.togglePage}
         clearMatches ={props.clearMatches}
-        getProfilesMatches={props.getProfilesMatches}
+        // getProfilesMatches={props.getProfilesMatches}
       />
       <Profiles
 
