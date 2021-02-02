@@ -8,7 +8,6 @@ export default function LoginPage(){
     return(
     <div>
         <h1>Página de Login</h1>
-        <button onClick={()=>goToAplica(history)}>confirmar Cadastro</button>
         <button onClick={()=>goToCreateTrip(history)}>Login como usuário</button>
         <button onClick={()=>goBackPage(history)}>voltar</button>
 

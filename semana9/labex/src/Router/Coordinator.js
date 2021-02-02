@@ -3,23 +3,23 @@ export const goToHomePage = (history)=>{
 }
 
 export const goToListTripsPage = (history)=>{
-    history.push("/listar-viagens")
+    history.push("/trips/list")
 }
 
 export const goToTripDetail = (history)=>{
-    history.push("/detalhes-viagem")
+    history.push("/trips/details")
 }
 
 export const goToCreateTrip = (history)=>{
-    history.push("/criar-viagem")
+    history.push("/trips/create")
 }
 
 export const goToAplica = (history)=>{
-    history.push("/aplicar-para-viagem")
+    history.push("/aplication-form")
 }
 
 export const goToQuestion = (history)=>{
-    history.push("/canal-de-duvidas")
+    history.push("/questions")
 }
 
 export const goToLoginPage = (history)=>{

@@ -1,5 +1,5 @@
 import React from 'react'
-import AplicationPage from '../Pages/AplicationFromPage/AplicationPage'
+import AplicationPage from '../Pages/AplicationFormPage/AplicationPage'
 import CreateTripPage from '../Pages/CreateTripPage/CreateTripPage'
 import HomePage from '../Pages/HomePage/HomePage'
 import ListTripsPage from '../Pages/ListTripsPage/ListTripPage'
@@ -15,19 +15,19 @@ export default function Router(){
                 <Route exact path="/">
                     <HomePage/>
                 </Route>
-                <Route exact path="/listar-viagens">
+                <Route exact path="/trips/list">
                     <ListTripsPage/>
                 </Route>
-                <Route exact path="/detalhes-viagem">
+                <Route exact path="/trips/details">
                     <TripDetailsPage/>
                 </Route>
-                <Route exact path="/criar-viagem">
+                <Route exact path="/trips/create">
                     <CreateTripPage/>
                 </Route>
-                <Route exact path="/aplicar-para-viagem">
+                <Route exact path="/aplication-form">
                     <AplicationPage/>
                 </Route>
-                <Route exact path="/canal-de-duvidas">
+                <Route exact path="/questions">
                     <Question/>
                 </Route>
                 <Route exact path="/login">
