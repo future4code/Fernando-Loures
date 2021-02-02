@@ -1,10 +1,11 @@
 import React from 'react'
-import AplicationFromPage from '../Pages/AplicationFromPage/AplicationFromPage'
+import AplicationPage from '../Pages/AplicationFromPage/AplicationPage'
 import CreateTripPage from '../Pages/CreateTripPage/CreateTripPage'
 import HomePage from '../Pages/HomePage/HomePage'
-import ListTripsPage from '../Pages/ListTripsPage/ListTripsPage'
-import TripDetailsPage from '../Pages/TripDetailsPage/TripDetailsPage'
-import Question from '../Pages/Question'
+import ListTripsPage from '../Pages/ListTripsPage/ListTripPage'
+import TripDetailsPage from '../Pages/TripDetailsPage/TripDetailPage'
+import Question from '../Pages/Question/Question'
+import LoginPage from '../Pages/LoginPage/LoginPage'
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 export default function Router(){
@@ -24,10 +25,13 @@ export default function Router(){
                     <CreateTripPage/>
                 </Route>
                 <Route exact path="/aplicar-para-viagem">
-                    <AplicationFromPage/>
+                    <AplicationPage/>
                 </Route>
                 <Route exact path="/canal-de-duvidas">
                     <Question/>
+                </Route>
+                <Route exact path="/login">
+                    <LoginPage/>
                 </Route>
             </Switch>
         </BrowserRouter>
