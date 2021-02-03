@@ -6,11 +6,14 @@ import ListTripsPage from '../Pages/ListTripsPage/ListTripPage'
 import TripDetailsPage from '../Pages/TripDetailsPage/TripDetailPage'
 import Question from '../Pages/Question/Question'
 import LoginPage from '../Pages/LoginPage/LoginPage'
+import Header from '../Components/Header/Header'
+import Footer from '../Components/Footer/Footer'
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 export default function Router(){
     return(
         <BrowserRouter>
+            <Header/>
             <Switch>
                 <Route exact path="/">
                     <HomePage/>
@@ -34,6 +37,7 @@ export default function Router(){
                     <LoginPage/>
                 </Route>
             </Switch>
+            <Footer/>
         </BrowserRouter>
     )
 }
