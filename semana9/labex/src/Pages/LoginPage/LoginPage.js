@@ -1,31 +1,38 @@
-import React, {useEffect} from 'react'
-import { goToHomePage, goToCreateTrip, goBackPage } from '../../Router/Coordinator'
+import React, { useEffect } from 'react'
+import { goToCreateTrip } from '../../Router/Coordinator'
 import { useHistory } from "react-router-dom";
-import { useInput } from '../../Hooks/UseInput';
 import axios from 'axios'
-
+import useForm from '../../Hooks/UseForm'
+import { baseUrl } from '../../ApiParameters';
+import {ContainerLogin} from './StyleLogin'
+import {FormLogin} from './StyleLogin'
 
 export default function LoginPage() {
     const history = useHistory()
-    const [email, handleEmail] = useInput()
-    const [password, handlePassword] = useInput()
 
-    useEffect(()=>{
+    const [form, onChange, clearFields] = useForm({ email: "", password: "" });
+    
+    const handleClick = (event) => {
+        event.preventDefault()
+        login(form.email, form.password)
+        clearFields()
+    }
+
+    useEffect(() => {
         const token = localStorage.getItem("token")
-        if(token){
-            history.push("/")
+        if (token) {
+            history.push("/trips/create")
         }
-    },[history])
+    }, [history])
 
 
-    const login = () => {
-        const aluno = "fernando-silva"
+    const login = (email, password) => {
         const body = {
             email: email,
             password: password
         }
 
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/login`, body)
+        axios.post(`${baseUrl}/login`, body)
             .then((res) => {
                 console.log(res.data)
                 localStorage.setItem("token", res.data.token)
@@ -36,18 +43,32 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
+        <ContainerLogin>
             <h1>Página de Login</h1>
-            <input type="text" onChange={handleEmail} value={email} placeholder="E-mail" required />
-            <input type="password" onChange={handlePassword} value={password} placeholder="Senha"  required/>
+            <FormLogin onSubmit={handleClick}>
+                <input
+                    name={"email"}
+                    type="email"
+                    onChange={onChange}
+                    value={form.email}
+                    placeholder="E-mail"
+                    required
+                />
+                <input
+                    name={"password"}
+                    type="password"
+                    onChange={onChange}
+                    value={form.password}
+                    placeholder="Password"
+                    required 
+                />
 
-            <button onClick={login}>Fazer login</button>
-            <hr></hr>
+                <button>Fazer login</button>
+            </FormLogin>
 
-            <button onClick={() => goBackPage(history)}>voltar</button>
-            <button onClick={()=>goToHomePage(history)}>Início</button>
 
-        </div>
+
+        </ContainerLogin>
     )
 }
 // login: teste@gmail.com.br

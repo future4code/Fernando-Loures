@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useProtectPage } from '../../Hooks/useProtectPage';
 import axios from 'axios'
 import { baseUrl } from '../../ApiParameters';
+import { ContainerDetail, Trip, Div, List} from './StyleTrip'
 
 
 export default function TripDetailsPage() {
@@ -35,8 +36,9 @@ export default function TripDetailsPage() {
 
 
     return (
-        <div>
-            <h1>Detalhes da viagem</h1>
+        <ContainerDetail>
+                <h1>Detalhes da viagem</h1>
+            
             <div>
                 <h4>{trip && trip.name}</h4>
                 <p>{trip && trip.description}</p>
@@ -44,19 +46,21 @@ export default function TripDetailsPage() {
                 <p>{trip && trip.durationInDays}</p>
                 <p>{trip && trip.date}</p>
             </div>
-            <div>
+            <Trip>
                 <h4>Candidatos:</h4>
                 {trip && trip.candidates.map(candidate => {
                     return (
                         <ul>
-                            <li>Nome: {candidate.name}</li>
-                            <li>Profissão: {candidate.profession}</li>
-                            <li>País: {candidate.country}</li>
-                            <li>Idade: {candidate.age}</li>
-                            <li>Texto de aplicação: {candidate.applicationText}</li>
+                            <List>Nome: {candidate.name}</List>
+                            <List>Profissão: {candidate.profession}</List>
+                            <List>País: {candidate.country}</List>
+                            <List>Idade: {candidate.age}</List>
+                            <List>Texto de aplicação: {candidate.applicationText}</List>
                         </ul>
                     )
                 })}
+            </Trip>
+            <Trip>
                 <h4>Aprovados:</h4>
                 <ul>
                     {trip && trip.approved.map(candidateApproved => {
@@ -65,14 +69,7 @@ export default function TripDetailsPage() {
                         )
                     })}
                 </ul>
-            </div>
-
-
-            <hr></hr>
-            <button onClick={() => goToAplica(history)}>Confirmar aplicação.</button>
-            <button onClick={() => goToQuestion(history)}>Dúvidas</button>
-            <button onClick={() => goBackPage(history)}>voltar</button>
-
-        </div>
+            </Trip>
+        </ContainerDetail>
     )
 }

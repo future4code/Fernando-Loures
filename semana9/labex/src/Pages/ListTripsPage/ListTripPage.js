@@ -3,6 +3,7 @@ import { goToTripDetail, goToHomePage, goToAplica } from '../../Router/Coordinat
 import { useHistory } from "react-router-dom";
 import { baseUrl } from '../../ApiParameters';
 import axios from 'axios'
+import { ContainerList, Trip, TripsContainer, List} from './StyleTrip';
 
 export default function ListTripsPage() {
     const [trips, setTrips] = useState()
@@ -11,43 +12,45 @@ export default function ListTripsPage() {
     useEffect(() => {
         axios.get(`${baseUrl}/trips`)
             .then((res) => {
-                
+
                 setTrips(res.data.trips)
             })
             .catch((err) => console.log(err))
 
     }, [])
 
-    const checkDetails =(id)=>{
+    const checkDetails = (id) => {
         goToTripDetail(history)
-        localStorage.setItem('tripId', id )
+        localStorage.setItem('tripId', id)
     }
 
-    const applyToTrip = (id) =>{
-        localStorage.setItem('tripId', id )
+    const applyToTrip = (id) => {
+        localStorage.setItem('tripId', id)
         goToAplica(history)
     }
 
 
     return (
-        <div>
+        <ContainerList>
             <h1>Lista de Viagens</h1>
-            <div>
-                {trips && trips.map(trip=>{
-                    return(
-                    <div key={trip.id}>
-                        <h4>{trip.name}</h4>
-                        <p>{trip.description}</p>
-                        <p>{trip.planet}</p>
-                        <p>{trip.durationInDays}</p>
-                        <p>{trip.date}</p>
-                        <button onClick={() => checkDetails(trip.id)}>Ver detalhes</button>
-                        <button onClick={() => applyToTrip(trip.id)}>Aplicar para viagem</button>
-                    </div>)
-                })}
-            </div>
-<hr></hr>
-            <button onClick={() => goToHomePage(history)}>Início</button>
-        </div>
+            <TripsContainer>
+               
+                    {trips && trips.map(trip => {
+                        return (
+                            <Trip key={trip.id}>
+                                <List>Viagem: {trip.name}</List>
+                                <List>Descrição: {trip.description}</List>
+                                <List>Planeta: {trip.planet}</List>
+                                <List>Duração da Viagem: {trip.durationInDays} dias</List>
+                                <List>Data de início: {trip.date}</List>
+                                <List>
+                                    <button onClick={() => checkDetails(trip.id)}>Ver detalhes</button>
+                                    <button onClick={() => applyToTrip(trip.id)}>Aplicar para viagem</button>
+                                </List>
+                            </Trip>
+                        )
+                    })}
+            </TripsContainer>
+        </ContainerList>
     )
 }

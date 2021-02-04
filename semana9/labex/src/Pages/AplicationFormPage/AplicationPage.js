@@ -1,39 +1,99 @@
 import React from 'react'
-import {goToHomePage, goBackPage} from '../../Router/Coordinator'
+import { goToHomePage, goBackPage } from '../../Router/Coordinator'
 import { useHistory } from "react-router-dom";
-import { useInput } from '../../Hooks/UseInput';
 import axios from 'axios'
-import {baseUrl} from '../../ApiParameters'
+import { baseUrl } from '../../ApiParameters'
+import { AllCountriesSelect } from '../../Components/AllCountriesSelect/AllCountriesSelect'
+import useForm from '../../Hooks/UseForm'
+import { useState, useEffect } from 'react';
+import { FormApply, ContainerApply } from './StyleAplication';
 
-export default function AplicationFromPage(){
-    const [name, handleName] = useInput()
-    const [age, handleAge] = useInput()
-    const [application, handleApplication ] = useInput()
-    const [profession, handleProfession] =useInput()
-    const [country, handleCountry] = useInput()
-
+export default function AplicationFromPage() {
     const history = useHistory()
+    const [trips, setTrips] = useState()
 
-    const applyToTrip = () =>{
-        const id = localStorage.getItem("tripId")
+    useEffect(() => {
+        axios.get(`${baseUrl}/trips`)
+            .then((res) => {
 
-        axios.post(`${baseUrl}/trips/${id}/apply`)
-        .then((res)=>console.log(res))
-        .catch((err)=>console.log(err))
+                setTrips(res.data.trips)
+            })
+            .catch((err) => console.log(err))
+
+    }, [])
+
+
+    const [form, onChange] = useForm({
+        name: "",
+        age: "",
+        applicationText: "",
+        profession: "",
+        country: "",
+        trip: ""
+    })
+    const applyToTrip = (event) => {
+        event.preventDefault();
+        console.log(form);
+
+        // const id = localStorage.getItem("tripId")
+
+        // axios.post(`${baseUrl}/trips/${id}/apply`)
+        //     .then((res) => console.log(res))
+        //     .catch((err) => console.log(err))
     }
 
-    return(
-    <div>
-        <h1>Aplicar para viagem </h1>
-        <input type="text" onChange={handleName} value={name} placeholder="Nome" />
-        <input type="text" onChange={handleAge} value={age} placeholder="idade" />
-        <input type="text" onChange={handleApplication} value={application} placeholder="Texto para aplicação" />
-        <input type="text" onChange={handleProfession} value={profession} placeholder="Profissão" />
-        <input type="text" onChange={handleCountry} value={country} placeholder="País" />
-        <button onClick={applyToTrip}>Aplicar para Viagem</button>
-<hr></hr>
-        <button onClick={()=>goBackPage(history)}>Lista de viagens</button>
-        <button onClick={()=>goToHomePage(history)}>Início.</button>
-    </div>
+    return (
+        <ContainerApply>
+            <h1>Aplicar para viagem </h1>
+            <FormApply onSubmit={applyToTrip}>
+                <input
+                    name={"name"}
+                    type="text"
+                    pattern={"^.{3,}$"}
+                    onChange={onChange}
+                    value={form.name}
+                    placeholder="Nome"
+                    required
+                />
+                <input
+                    name={"age"}
+                    type="number"
+                    min={"18"}
+                    onChange={onChange}
+                    value={form.age}
+                    placeholder="idade"
+                    required
+                />
+                <input
+                    name={"applicationText"}
+                    type="text"
+                    pattern={"^.{30,}$"}
+                    onChange={onChange}
+                    value={form.applicationText}
+                    placeholder="Texto para aplicação"
+                    required
+                />
+                <input
+                    name={"profession"}
+                    type="text"
+                    pattern={"^.{10,}$"}
+                    onChange={onChange}
+                    value={form.profession}
+                    placeholder="Profissão"
+                    required
+                />
+                {AllCountriesSelect(onChange, form.country)}
+                <select name={"trip"} onChange={onChange} value={form.trip}>
+                    {trips && trips.map(trip => {
+                        return (
+                            <option key={trip.id} value={trip.id}>
+                                {trip.name} - {trip.planet}
+                            </option>
+                        )
+                    })}
+                </select>
+                <button >Aplicar para Viagem</button>
+            </FormApply>
+        </ContainerApply>
     )
 }
