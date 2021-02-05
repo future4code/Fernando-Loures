@@ -5,7 +5,7 @@ import axios from 'axios';
 import { baseUrl } from '../../ApiParameters';
 import {ContainerCreate, FormCreate} from './StyleCreate';
 import {Buttons, Inputs, Selects, Success, Failed} from '../../Styles/Btns'
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 
 const planets = [
     "Mercúrio", "Vênus", "Terra", "Marte", "Júpiter",
@@ -13,7 +13,8 @@ const planets = [
     "Ceres", "Haumea", " Makemake"]
 
 export default function LoginPage() {
-    const [message, setMessage] = useState("")
+    const [response, setResponse] = useState("")
+    
     useProtectPage()
     const [form, onChange, clearFields] = useForm({
         name: "",
@@ -27,7 +28,7 @@ export default function LoginPage() {
         event.preventDefault();
         clearFields()
         trip()
-        setMessage('carregando')
+        setResponse('carregando')
     }
 
     const trip = () => {
@@ -47,11 +48,12 @@ export default function LoginPage() {
             }
         )
             .then((res) => {
-                setMessage('success')
+                console.log(res)
+                setResponse(true)
             })
             .catch((err) => {
                 console.log(err)
-                setMessage('failed')
+                setResponse(false)
             })
     }
 
@@ -107,9 +109,9 @@ export default function LoginPage() {
                 />
                 <Buttons>Criar Viagem</Buttons>
             </FormCreate>
-            {message === 'success' && <Success>Viagem cadastrada com sucesso!</Success>}
-            {message === 'failed' && <Failed>A viagem não foi processada, tente mais tarde!</Failed>}
-            {message === 'carregando' && <p>Carregando ...</p>}
+            {response === true && <Success>Viagem cadastrada com sucesso!</Success>} 
+            {response === false && <Failed>A viagem não foi processada, tente mais tarde!</Failed>}
+            {response === null && <p>Carregando ...</p>}
         </ContainerCreate>
     )
 }

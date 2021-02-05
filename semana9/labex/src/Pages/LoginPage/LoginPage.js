@@ -5,7 +5,7 @@ import useForm from '../../Hooks/UseForm'
 import { baseUrl } from '../../ApiParameters';
 import {ContainerLogin} from './StyleLogin'
 import {FormLogin} from './StyleLogin'
-import {Buttons, Inputs} from '../../Styles/Btns' 
+import {Buttons, Failed, Inputs} from '../../Styles/Btns' 
 import { goToSignUp } from '../../Router/Coordinator';
 
 
@@ -42,6 +42,7 @@ export default function LoginPage() {
                 history.push("/trips/create")
             }).catch((err) => {
                 console.log(err)
+                setMessage("wrong")
             })
     }
 
@@ -71,6 +72,7 @@ export default function LoginPage() {
             <p>Ou faça o seu cadastro abaixo:</p>
             <Buttons onClick={()=>goToSignUp(history)}>Cadastrar</Buttons>
             {message === 'carregando' && <p>Carregando ...</p>}
+            {message === 'wrong' && <Failed>Senha inválida</Failed>}
         </ContainerLogin>
     )
 }
