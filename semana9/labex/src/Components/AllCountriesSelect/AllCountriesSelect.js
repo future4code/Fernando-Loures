@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {Selects} from '../../Styles/Btns'
 export const AllCountriesSelect = (handleCountry, country) =>{
     return (
-            <select id="country" name="country" onChange={handleCountry} value={country}>
+            <Selects id="country" name="country" onChange={handleCountry} value={country}>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -247,6 +247,6 @@ export const AllCountriesSelect = (handleCountry, country) =>{
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select>
+            </Selects>
     )
 }

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react'
 import { useProtectPage } from '../../Hooks/useProtectPage';
 import useForm from '../../Hooks/UseForm';
 import axios from 'axios';
 import { baseUrl } from '../../ApiParameters';
-import { useEffect } from 'react/cjs/react.development';
-import {ContainerCreate, FormCreate} from './StyleCreate'
+import {ContainerCreate, FormCreate} from './StyleCreate';
+import {Buttons, Inputs, Selects, Success, Failed} from '../../Styles/Btns'
+import { useState } from 'react/cjs/react.development';
 
 const planets = [
     "Mercúrio", "Vênus", "Terra", "Marte", "Júpiter",
@@ -13,13 +13,7 @@ const planets = [
     "Ceres", "Haumea", " Makemake"]
 
 export default function LoginPage() {
-    const [token, setToken] = useState()
-    useEffect(() => {
-        setToken(localStorage.getItem("token"))
-    }, [])
-
-
-    const history = useHistory()
+    const [message, setMessage] = useState("")
     useProtectPage()
     const [form, onChange, clearFields] = useForm({
         name: "",
@@ -31,10 +25,9 @@ export default function LoginPage() {
 
     const createTrip = (event) => {
         event.preventDefault();
-        console.log(form)
-        console.log(token)
         clearFields()
         trip()
+        setMessage('carregando')
     }
 
     const trip = () => {
@@ -54,25 +47,28 @@ export default function LoginPage() {
             }
         )
             .then((res) => {
-                console.log(res)
+                setMessage('success')
             })
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                console.log(err)
+                setMessage('failed')
+            })
     }
 
     return (
         <ContainerCreate>
             <h1>Criar Viagem</h1>
             <FormCreate onSubmit={createTrip}>
-                <input
+                <Inputs
                     name={"name"}
                     value={form.name}
                     onChange={onChange}
                     type={"text"}
-                    placeholder={"Nome"}
+                    placeholder={"Nome da viagem"}
                     required
                     pattern={"^.{5,}$"}
                 />
-                <select
+                <Selects
                     name={"planet"}
                     value={form.planet}
                     onChange={onChange}
@@ -81,8 +77,8 @@ export default function LoginPage() {
                         return (
                             <option key={plan} value={plan}>{plan}</option>)
                     })}
-                </select>
-                <input
+                </Selects>
+                <Inputs
                     name={"date"}
                     min={"2021-03-01"}
                     value={form.date}
@@ -91,7 +87,7 @@ export default function LoginPage() {
                     placeholder={"Data da viagem"}
                     required
                 />
-                <input
+                <Inputs
                     name={"description"}
                     value={form.description}
                     onChange={onChange}
@@ -100,7 +96,7 @@ export default function LoginPage() {
                     pattern={"^.{30,}$"}
                     required
                 />
-                <input
+                <Inputs
                     name={"duration"}
                     value={form.duration}
                     onChange={onChange}
@@ -109,8 +105,11 @@ export default function LoginPage() {
                     placeholder={"Duração em dias"}
                     required
                 />
-                <button>Criar Viagem</button>
+                <Buttons>Criar Viagem</Buttons>
             </FormCreate>
+            {message === 'success' && <Success>Viagem cadastrada com sucesso!</Success>}
+            {message === 'failed' && <Failed>A viagem não foi processada, tente mais tarde!</Failed>}
+            {message === 'carregando' && <p>Carregando ...</p>}
         </ContainerCreate>
     )
 }

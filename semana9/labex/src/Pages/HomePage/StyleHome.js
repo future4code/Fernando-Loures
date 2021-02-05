@@ -10,3 +10,7 @@ export const Subtitle =  styled.h4`
     text-align:center;
     width:80vw;
 `
+export const H =  styled.h1`
+    text-align:center;
+    width:80vw;
+`

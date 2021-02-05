@@ -1,16 +1,16 @@
 import React from 'react'
-import { goToHomePage, goBackPage } from '../../Router/Coordinator'
-import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import { baseUrl } from '../../ApiParameters'
 import { AllCountriesSelect } from '../../Components/AllCountriesSelect/AllCountriesSelect'
 import useForm from '../../Hooks/UseForm'
 import { useState, useEffect } from 'react';
 import { FormApply, ContainerApply } from './StyleAplication';
+import { Buttons, Inputs, Selects, Success, Failed } from '../../Styles/Btns'
+
 
 export default function AplicationFromPage() {
-    const history = useHistory()
     const [trips, setTrips] = useState()
+    const [message, setMessage] = useState()
 
     useEffect(() => {
         axios.get(`${baseUrl}/trips`)
@@ -23,7 +23,7 @@ export default function AplicationFromPage() {
     }, [])
 
 
-    const [form, onChange] = useForm({
+    const [form, onChange, clearFields] = useForm({
         name: "",
         age: "",
         applicationText: "",
@@ -33,20 +33,36 @@ export default function AplicationFromPage() {
     })
     const applyToTrip = (event) => {
         event.preventDefault();
-        console.log(form);
+        clearFields()
+        application()
+        setMessage('carregando')
+    }
 
-        // const id = localStorage.getItem("tripId")
 
-        // axios.post(`${baseUrl}/trips/${id}/apply`)
-        //     .then((res) => console.log(res))
-        //     .catch((err) => console.log(err))
+    const application = () => {
+        const body = {
+            name: form.name,
+            age: form.age,
+            applicationText: form.applicationText,
+            profession: form.profession,
+            country: form.country,
+        }
+        axios.post(`${baseUrl}/trips/${form.trip}/apply`, body)
+            .then((res) => {
+                
+                setMessage('success')
+            })
+            .catch((err) => {
+                console.log(err)
+                setMessage('fault')
+            })
     }
 
     return (
         <ContainerApply>
             <h1>Aplicar para viagem </h1>
             <FormApply onSubmit={applyToTrip}>
-                <input
+                <Inputs
                     name={"name"}
                     type="text"
                     pattern={"^.{3,}$"}
@@ -55,7 +71,7 @@ export default function AplicationFromPage() {
                     placeholder="Nome"
                     required
                 />
-                <input
+                <Inputs
                     name={"age"}
                     type="number"
                     min={"18"}
@@ -64,7 +80,7 @@ export default function AplicationFromPage() {
                     placeholder="idade"
                     required
                 />
-                <input
+                <Inputs
                     name={"applicationText"}
                     type="text"
                     pattern={"^.{30,}$"}
@@ -73,7 +89,7 @@ export default function AplicationFromPage() {
                     placeholder="Texto para aplicação"
                     required
                 />
-                <input
+                <Inputs
                     name={"profession"}
                     type="text"
                     pattern={"^.{10,}$"}
@@ -83,7 +99,7 @@ export default function AplicationFromPage() {
                     required
                 />
                 {AllCountriesSelect(onChange, form.country)}
-                <select name={"trip"} onChange={onChange} value={form.trip}>
+                <Selects name={"trip"} onChange={onChange} value={form.trip}>
                     {trips && trips.map(trip => {
                         return (
                             <option key={trip.id} value={trip.id}>
@@ -91,9 +107,12 @@ export default function AplicationFromPage() {
                             </option>
                         )
                     })}
-                </select>
-                <button >Aplicar para Viagem</button>
+                </Selects>
+                <Buttons >Aplicar para Viagem</Buttons>
             </FormApply>
+            {message === 'success' && <Success>Aplicação cadastrada com sucesso!</Success>}
+            {message === 'fault' && <Failed>Aplicação falhou, tente mais tarde!</Failed>}
+            {message === 'carregando' && <p>Carregando ...</p>}
         </ContainerApply>
     )
 }
