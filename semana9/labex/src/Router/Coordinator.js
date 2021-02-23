@@ -25,6 +25,9 @@ export const goToQuestion = (history)=>{
 export const goToLoginPage = (history)=>{
     history.push("/login")
 }
+export const goToSignUp = (history)=>{
+    history.push("/signup")
+}
 
 export const goBackPage = (history)=>{
     history.goBack()

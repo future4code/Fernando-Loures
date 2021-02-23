@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const ContainerApply = styled.div`
+export const ContainerQuestion = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 `
-export const FormApply =  styled.form`
-    display:flex;
-    flex-direction: column;
+export const P =  styled.p`
+    text-align:justify;
+    width:80vw;
 `
