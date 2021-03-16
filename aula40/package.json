@@ -1,0 +1,14 @@
+{
+    "name": "aula40",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "NameAndAge": "clear && node index.js",
+        "start": "clear && node index.js",
+        "taskList": "clear && node index.js"
+    },
+    "author": "Fernando Silva",
+    "license": "ISC"
+}
