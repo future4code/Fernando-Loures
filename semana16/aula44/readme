@@ -1,0 +1,215 @@
+# Aula 44  mySql
+
+
+CREATE TABLE ACTOR (
+	id VARCHAR(255) PRIMARY KEY,
+    name  VARCHAR(255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(6) NOT NULL
+);
+
+SHOW databases;
+
+DESCRIBE ACTOR;
+
+
+	Id é um primary key que pode conter até 255 caracteres.
+    name também é um varchar de tamanho até 255 caracteres.
+    Salary é float pois contém decimais.
+    birth_date é do tipo Date.
+    gender é tipo varchar com até 8 caractéres.
+    Nenhum destes valores pode ser null.
+
+
+INSERT INTO ACTOR (id, name, salary, birth_date, gender)
+VALUES( "001", "Tony Ramos",  400000, "1948-08-25", "male"),
+	  ( "002", "Fernanda Montenegro",  500000, "1948-08-25", "female");
+
+INSERT INTO ACTOR (id, name, salary, birth_date, gender)
+VALUES( "003", "Glória Pires",  2500.00, "1963-08-23", "female");
+
+
+select * from ACTOR;
+
+
+Ao tentar inserir outro usuário na tabela actor com mesmo id que Glória Pires. O mySql não aceitou porque
+é uma chave primária. Não estou vendo a mensagem de erro.
+
+
+INSERT INTO Actor (id, name, salary)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+
+Não funciona pois os valores birth_date e gender não foram passados para dentro do insert.
+
+INSERT INTO Actor (id, salary, birth_date, gender)
+VALUES(
+  "004",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+
+Não funciona porque o campo name não foi passado e ele foi definido como not null na criação da tabela.
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "005", 
+  "Juliana Paes",
+  719333.33,
+  1979-03-26, 
+  "female"
+);
+
+Faltou aspas no birth_date.
+
+
+INSERT INTO ACTOR (id, name, salary, birth_date, gender)
+values("004", "Juliana Paes", 50000, "1979-03-26", "female"),
+	  ("005", "Maria Fernanda", 60000, "1979-03-26", "female");
+
+SELECT * FROM ACTOR;
+
+
+#3 
+
+SELECT * FROM ACTOR 
+WHERE gender = "female";
+
+SELECT * FROM ACTOR;
+
+SELECT salary FROM ACTOR
+WHERE name = "Tony Ramos";
+
+SELECT * FROM ACTOR 
+WHERE gender = "invalid";
+
+### d. Escreva uma query que retorne o id, nome e salário de todos que tenham o salário 
+### com o valor máximo de R$500.000
+
+SELECT id, name, salary from ACTOR 
+WHERE salary < 500;
+
+SELECT * FROM ACTOR;
+
+SELECT id, name from ACTOR 
+WHERE id = "002";
+
+
+#4. - - cujos nomes começam com "A" ou "J"; e cujos salários são maiores do que R$300.000
+
+SELECT * FROM ACTOR
+	WHERE (name LIKE "A%" OR name LIKE "J%") 
+		   AND salary > 300;  
+
+#*a. Explique com as suas palavras a query acima*
+## A query acima faz um select da tabela actor e seleciona linhas que tenham name com primeira letra A ou J, e salário acima de 300.
+
+## b. Escreva uma query com os atores que não comecem com a letra "A" e tenham o salário maior do que R$350.000,00
+
+SELECT * FROM ACTOR 
+WHERE name NOT LIKE "A%" AND salary> 350;
+
+## *c. Escreva uma query com os atores que possuam "G" ou "g" em qualquer parte do nome.*
+
+SELECT * FROM ACTOR 
+WHERE name LIKE "%G%" OR name LIKE "%g%";
+
+## *d. Escreva uma query com os atores que tenham a lerta "a" ou "A" ou "g" ou "G" no nome e o salário entre R$350.000,00 e R$900.000,00*
+
+SELECT * FROM ACTOR 
+WHERE (salary BETWEEN 350000 AND 900000) and
+	(name LIKE "%G%" OR name LIKE "%g%" or
+    name LIKE "%A%" OR name LIKE "%a%");
+    
+## 5 Terminamos de fazer um belo estudo sobre a tabela de Atores. Agora, você vai ficar mais independente.
+## Precisamos criar a tabela de Filmes com as informações: id, nome, sinopse, data de lançamento e 
+## avaliação (que pode ser de 0 a 10). 
+
+CREATE TABLE FILMES(
+	id VARCHAR(255) PRIMARY KEY, 
+    name VARCHAR(255) NOT NULL,
+    synopsis TEXT, 
+    release_date DATE NOT NULL,
+    evaluation  varchar(255)
+);
+
+drop table FILMES;
+
+CREATE TABLE FILMES(
+	id VARCHAR(255) PRIMARY KEY, 
+    name VARCHAR(255) NOT NULL,
+    synopsis TEXT, 
+    release_date DATE NOT NULL,
+    evaluation int
+);
+
+select * from FILMES;
+
+
+INSERT INTO FILMES (id, name, synopsis, release_date, evaluation) VALUES 
+("001", "Se eu fosse voce", "Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+"2006/01/06", 7), 
+("002", "Doce de mãe", "Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+"2012/12/12", 10),
+("003", "Dona Flor e Seus Dois Maridos", "Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.",
+"2017/11/02", 8);
+
+select * from FILMES;
+
+insert INTO FILMES (id, name, synopsis, release_date, evaluation) values("004", "Limite","Em um pequeno barco à deriva, duas mulheres e um homem relembram seu passado recente. Uma das mulheres escapou da prisão; a outra estava desesperada; e o homem tinha perdido sua amante. Cansados, eles param de remar e se conformam com a morte, relembrando (através de flashbacks) as situações de seu passado. Eles não têm mais força ou desejo de viver e atingiram o limite de suas existências", 
+"1931/05/17", 8);
+
+select * from FILMES;
+
+# 6
+##a. Retorne o id, título e avaliação a partir de um id específico;
+
+select id, name, evaluation from FILMES 
+where id = "001";
+
+## b. Retorne um filme a partir de um nome específico;
+
+select * from FILMES
+WHERE name like "Limite";
+
+## c. Retorne o id, título e sinopse dos filmes com avaliação mínima de 7
+
+select id, name, synopsis from FILMES
+WHERE evaluation >= 7;
+
+
+##7
+
+## a. Retorna um filme cujo título contenha a palavra vida
+
+select * from FILMES
+WHERE name like "%vida%";
+
+##b. Realize a pesquisa de um filme, ou seja: pesquise se o termo de busca está contido no título 
+##ou na sinopse. Utilize qualquer `TERMO DE BUSCA` para exemplificar.
+
+select * from FILMES
+WHERE name like "%Limite%" OR synopsis like "%Limite%";
+
+##c. Procure por todos os filmes que já tenham lançado
+
+select * from FILMES
+WHERE release_date <= "2021/03/22";
+
+
+##d. Procure por algum filme que já tenha lançado, 
+##com o termo de busca contido no título ou sinopse e com a avaliação maior do que `7`.
+
+
+select * from FILMES
+WHERE release_date <= "2021/03/22" and 
+	  evaluation >= 7 and 
+      (name like "%Helena%" or synopsis like "%Helena%" );
+
