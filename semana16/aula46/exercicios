@@ -21,3 +21,27 @@ c)
  }
 
 ### Exercicio 2
+A)
+const updateActor = async(salary: string, id: string): promise<any> =>{
+    const result = await connection.update({
+        salary: req.body.salary
+    })
+    .where(id: id)
+    return result[0]
+ }
+
+ B)
+const deleteActor = async( id: string): promise<any> =>{
+    const result = await connection.delete()
+    .where(id: id)
+    return result[0]
+ }
+
+C)
+const avgByGender = async(salary: string, id: string): promise<any> =>{
+    const result = await connection.avg({
+        salary: req.body.salary
+    })
+    .where(id: id)
+    return result[0]
+ }
