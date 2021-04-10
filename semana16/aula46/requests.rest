@@ -1,0 +1,67 @@
+POST   http://localhost:3006/actor
+Content-Type: application/json
+
+{
+    "name":"keanu Reeves",
+    "gender":"male",
+    "birthDate":"1964/09/02",
+    "salary":100000
+}
+
+###
+
+GET http://localhost:3006/actor
+
+###
+GET http://localhost:3006/actor/1
+
+###
+GET http://localhost:3006/actor/gender?gender=male
+
+###
+PUT   http://localhost:3006/actor
+Content-Type: application/json
+
+{
+    "id":7,
+    "name":"keanu Reeves cover",
+    "gender":"male",
+    "dateOfBirth":"1974/09/02",
+    "salary":100
+}
+
+###
+
+POST   http://localhost:3006/actor
+Content-Type: application/json
+
+{
+    "id":"001",
+    "salary":100000
+}
+
+###
+DELETE http://localhost:3006/actor/keanu Reeves cover
+
+###
+
+GET http://localhost:3006/movie/all
+
+###
+
+POST   http://localhost:3006/filmes
+Content-Type: application/json
+
+{
+    "id": "010",
+    "name": "Se eu fosse voce 2",
+    "synopsis": "Cláudio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+    "release_date": "2006-01-06",
+    "evaluation": 7,
+    "playing_limit_date": "2021-04-30"
+}
+
+###
+GET http://localhost:3006/movie/search?query=uma
+
+

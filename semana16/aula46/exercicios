@@ -1,0 +1,47 @@
+### Exercicio 1
+
+a) A resposta é um array com dois objetos, o primeiro com a resposta das requisições e o segundo valores do processo realizado.
+
+b)
+  const actorByName = async(name: string):promise<any> =>{
+    const result = await connection.raw(`
+        SELECT * FROM ACTOR WHERE name = ${name} 
+    `)
+    return result[0]
+ }
+
+c)
+ const actorByGender = async(gender: string):promise<any> =>{
+    const result = await connection.raw(`
+        SELECT count(*) FROM ACTOR 
+            where gender = ${gender} 
+            group by gender  
+    `)
+    return result[0]
+ }
+
+### Exercicio 2
+A)
+const updateActor = async(salary: string, id: string): promise<any> =>{
+    const result = await connection.update({
+        salary: req.body.salary
+    })
+    .where(id: id)
+    return result[0]
+ }
+
+ B)
+const deleteActor = async( id: string): promise<any> =>{
+    const result = await connection.delete()
+    .where(id: id)
+    return result[0]
+ }
+
+C)
+const avgByGender = async(salary: string, id: string): promise<any> =>{
+    const result = await connection.avg({
+        salary: req.body.salary
+    })
+    .where(id: id)
+    return result[0]
+ }
