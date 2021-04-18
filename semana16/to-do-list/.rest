@@ -1,0 +1,67 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "João",
+    "nickname":"João",
+    "email": "joaozinho@labenu.com"       
+}
+###
+
+GET http://localhost:3003/user
+
+###
+
+GET http://localhost:3003/user/2
+
+###
+
+PUT http://localhost:3003/user/2
+Content-Type: application/json
+
+{
+    "name": "Lucas",
+    "nickname":"Luquinha",
+    "email": "luquinha@labenu.com"       
+}
+###
+
+Post http://localhost:3003/task
+Content-Type: application/json
+
+{
+    "title": "Abrir a loja",
+    "description":"Abrir a loja as 8:00hs.",
+    "limit_date": "2021/03/01",
+    "status":"To do",
+    "user_creator":"Fernando"       
+}
+###
+
+GET http://localhost:3003/task
+
+###
+
+GET http://localhost:3003/task/2
+
+###
+GET http://localhost:3003/task/user/Lucas
+
+###
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+   "user_id":1,
+   "task_id":2    
+}
+
+###
+GET http://localhost:3003/task/get/responsible
+
+###
+
+GET http://localhost:3003/users?query=nando
+
+###
+GET http://localhost:3003/tasks?status=todo
