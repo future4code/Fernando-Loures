@@ -12,8 +12,7 @@ import { getData } from '../services/authenticator'
 export const getUser = async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization as string;
-        const authenticationData = getData(token);
-        console.log(authenticationData)
+        const authenticationData: any= getData(token);
          const user = await getUserById(authenticationData.id);
         res.status(200).send({
             id: user.id,
@@ -25,8 +24,6 @@ export const getUser = async (req: Request, res: Response) => {
         });
     }
 }
-
-
 
 
 type userCredentials = {
