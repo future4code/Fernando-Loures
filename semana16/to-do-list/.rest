@@ -63,5 +63,5 @@ GET http://localhost:3003/task/get/responsible
 
 GET http://localhost:3003/users?query=nando
 
-
-GET http://localhost:3003/task?query=to&do
+###
+GET http://localhost:3003/tasks?status=todo
