@@ -1,0 +1,30 @@
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "teste3@teste.com",
+    "password": "teste",
+    "role": "NORMAL"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "teste3@teste.com",
+    "password": "teste",
+    "role": "NORMAL"
+}
+###
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTkwMzY4MzgsImV4cCI6MTYxOTA0MDQzOH0.sDui_QAlwti9kkZ_9ErNEDnhLze19CF3diOZLSD45Rw
+###
+DELETE http://localhost:3003/user/dfasd
+###
+GET http://localhost:3003/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTkwNDA1NjksImV4cCI6MTYxOTA0NDE2OX0.TmgpcNf4NWI7KXinIopmanCf6z_GK8ifOWMUwvweosk
+
+###
+GET http://localhost:3003/allusers
