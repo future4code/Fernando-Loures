@@ -70,8 +70,16 @@ class UserAccount {
       })
       this.balance = sum
    }
+}
 
-
+class bank {
+   private accounts: UserAccount[];
+   constructor(accounts: UserAccount[]){
+      this.accounts=accounts
+   }
+   getAccounts(): UserAccount[]{
+      return this.accounts
+   }
 }
 
 const user = new UserAccount("cpf123", "joao123", 29)
