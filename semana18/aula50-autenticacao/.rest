@@ -1,0 +1,18 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "teste2@teste.com",
+    "password": "testezdfz"
+}
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "teste@teste.com",
+    "password": "testeteste"
+}
+###
+GET http://localhost:3003/cookenu/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTkzNDc5NzEsImV4cCI6MTYyMTQyMTU3MX0.sZ_ZdLFk7CQGyPQ9eYndlX3TakS3m4CHkTwwIKl-pic
