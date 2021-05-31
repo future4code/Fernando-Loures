@@ -1,0 +1,53 @@
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "name": "adminTeste",
+    "email":"admin@teste.com",
+    "password": "password",
+    "role": "Admin"
+}
+####
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email":"admin@teste.com",
+    "password": "password"
+}
+###
+POST http://localhost:3000/group/register
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YjJkMTU1LTVjMWQtNDE5Ni04MTAyLWI1ODA0Yjc0MzNmOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMjUwMzE2NywiZXhwIjoxNjIyNTA2NzY3fQ.dTQOZcqQ9xesWxCL7xRujsSbKpFhwhoocYkveedYuUs
+{
+    "name":"Olha o samba",
+    "music_genre": "samba",
+    "responsible": "Maria"
+}
+###
+GET http://localhost:3000/group/details?name=Olha o samba
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YjJkMTU1LTVjMWQtNDE5Ni04MTAyLWI1ODA0Yjc0MzNmOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMjUwMzE2NywiZXhwIjoxNjIyNTA2NzY3fQ.dTQOZcqQ9xesWxCL7xRujsSbKpFhwhoocYkveedYuUs
+###
+GET http://localhost:3000/group/details?id=15146283-b7ba-4baf-a5ae-f2c0c013757a
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YjJkMTU1LTVjMWQtNDE5Ni04MTAyLWI1ODA0Yjc0MzNmOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMjQxNzY4MywiZXhwIjoxNjIyNDIxMjgzfQ.933bniiZQ-Tk3Dtzj9AAboUTTa9a60Mi9FplTL8I9nA
+###
+
+POST http://localhost:3000/group/show
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YjJkMTU1LTVjMWQtNDE5Ni04MTAyLWI1ODA0Yjc0MzNmOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMjUwMzYzNywiZXhwIjoxNjIyNTA3MjM3fQ.JQBg3TO1mWNicRwuPlJQTf_ONGsrTaoxcPzZ7jnMfvA
+
+{
+    "week_day":"friday",
+    "start_time":21,
+    "end_time": 22,
+    "band_id": "15146283-b7ba-4baf-a5ae-f2c0c013757a"
+}
+###
+
+GET http://localhost:3000/group/show/friday
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YjJkMTU1LTVjMWQtNDE5Ni04MTAyLWI1ODA0Yjc0MzNmOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMjUwMzYzNywiZXhwIjoxNjIyNTA3MjM3fQ.JQBg3TO1mWNicRwuPlJQTf_ONGsrTaoxcPzZ7jnMfvA
+
+###
